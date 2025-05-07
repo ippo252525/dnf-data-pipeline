@@ -32,6 +32,23 @@ def format_enchant_info(arg_enchant_dict : dict):
         output = arg_enchant_dict['explain'] + ", " + output
     return output
 
+{'options': [{'explain': '최종 데미지 4% 증가', 'explainDetail': '최종 데미지 4% 증가'},
+  {'explain': '최종 데미지 4% 증가', 'explainDetail': '최종 데미지 4% 증가'},
+  {'engrave': {'color': 'gold', 'value': 3},
+   'explain': '최종 데미지 5.5% 증가',
+   'explainDetail': '최종 데미지 5.5% 증가'}]}
+
+def format_fusion_option_info(fusion_option_info : dict) -> str:
+    """
+    융합 옵션 정보를 정리해서 반환하는 함수
+
+    융합석 각인이 가능한 경우만 해당 옵션을 ||로 연결해서 str로 반환한다다
+    """
+    if fusion_option_info:
+        if len(fusion_option_info.get('options', [])) == 3:
+            return "||".join([fusion_option.get('explain') for fusion_option in fusion_option_info['options']]) 
+    return None
+
 def format_buff_skill_info(buff_skill_info : dict) -> str:
     return buff_skill_info['name']
     

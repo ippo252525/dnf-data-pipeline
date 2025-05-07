@@ -33,7 +33,7 @@ class Settings:
     # 디폴트 값
     
     # Seeder가 SQL을 사용 할 경우 cursor에 필요한 batch size
-    DEFAULT_SEEDER_BATCH_SIZE = 2
+    DEFAULT_SEEDER_BATCH_SIZE = 1000
 
     # API 요청을 보내는 워커의 개수
     DEFAULT_NUM_API_FETCH_WORKERS = 100

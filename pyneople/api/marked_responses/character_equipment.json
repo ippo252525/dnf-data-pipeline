@@ -85,17 +85,7 @@
       "enchant": "__jacket_enchant__",
       "amplificationName": "__jacket_amplification_name__",
       "refine": "__jacket_refine__",
-      "fusionOption": {
-        "options": [
-          {
-            "buff": "__jacket_fusion_option_options_buff__",
-            "explain": "__jacket_fusion_option_options_explain__",
-            "explainDetail": "__jacket_fusion_option_options_explain_detail__",
-            "buffExplain": "__jacket_fusion_option_options_buff_explain__",
-            "buffExplainDetail": "__jacket_fusion_option_options_buff_explain_detail__"
-          }
-        ]
-      },
+      "fusionOption": "__jacket_fusion_option__",
       "upgradeInfo": {
         "itemId": "__jacket_upgrade_info_item_id__",
         "itemName": "__jacket_upgrade_info_item_name__",
@@ -126,17 +116,7 @@
       "enchant": "__shoulder_enchant__",
       "amplificationName": "__shoulder_amplification_name__",
       "refine": "__shoulder_refine__",
-      "fusionOption": {
-        "options": [
-          {
-            "buff": "__shoulder_fusion_option_options_buff__",
-            "explain": "__shoulder_fusion_option_options_explain__",
-            "explainDetail": "__shoulder_fusion_option_options_explain_detail__",
-            "buffExplain": "__shoulder_fusion_option_options_buff_explain__",
-            "buffExplainDetail": "__shoulder_fusion_option_options_buff_explain_detail__"
-          }
-        ]
-      },
+      "fusionOption": "__shoulder_fusion_option__",
       "upgradeInfo": {
         "itemId": "__shoulder_upgrade_info_item_id__",
         "itemName": "__shoulder_upgrade_info_item_name__",
@@ -170,17 +150,7 @@
       "enchant": "__pants_enchant__",
       "amplificationName": "__pants_amplification_name__",
       "refine": "__pants_refine__",
-      "fusionOption": {
-        "options": [
-          {
-            "buff": "__pants_fusion_option_options_buff__",
-            "explain": "__pants_fusion_option_options_explain__",
-            "explainDetail": "__pants_fusion_option_options_explain_detail__",
-            "buffExplain": "__pants_fusion_option_options_buff_explain__",
-            "buffExplainDetail": "__pants_fusion_option_options_buff_explain_detail__"
-          }
-        ]
-      },
+      "fusionOption": "__pants_fusion_option__",
       "upgradeInfo": {
         "itemId": "__pants_upgrade_info_item_id__",
         "itemName": "__pants_upgrade_info_item_name__",
@@ -214,17 +184,7 @@
       "enchant": "__shoes_enchant__",
       "amplificationName": "__shoes_amplification_name__",
       "refine": "__shoes_refine__",
-      "fusionOption": {
-        "options": [
-          {
-            "buff": "__shoes_fusion_option_options_buff__",
-            "explain": "__shoes_fusion_option_options_explain__",
-            "explainDetail": "__shoes_fusion_option_options_explain_detail__",
-            "buffExplain": "__shoes_fusion_option_options_buff_explain__",
-            "buffExplainDetail": "__shoes_fusion_option_options_buff_explain_detail__"
-          }
-        ]
-      },
+      "fusionOption": "__shoes_fusion_option__",
       "upgradeInfo": {
         "itemId": "__shoes_upgrade_info_item_id__",
         "itemName": "__shoes_upgrade_info_item_name__",
@@ -258,17 +218,7 @@
       "enchant": "__waist_enchant__",
       "amplificationName": "__waist_amplification_name__",
       "refine": "__waist_refine__",
-      "fusionOption": {
-        "options": [
-          {
-            "buff": "__waist_fusion_option_options_buff__",
-            "explain": "__waist_fusion_option_options_explain__",
-            "explainDetail": "__waist_fusion_option_options_explain_detail__",
-            "buffExplain": "__waist_fusion_option_options_buff_explain__",
-            "buffExplainDetail": "__waist_fusion_option_options_buff_explain_detail__"
-          }
-        ]
-      },
+      "fusionOption": "__waist_fusion_option__",
       "upgradeInfo": {
         "itemId": "__waist_upgrade_info_item_id__",
         "itemName": "__waist_upgrade_info_item_name__",
@@ -299,29 +249,7 @@
       "enchant": "__amulet_enchant__",
       "amplificationName": "__amulet_amplification_name__",
       "refine": "__amulet_refine__",
-      "fusionOption": {
-        "options": [
-          {
-            "engrave": {
-              "color": "__amulet_fusion_option_options_0_engrave_color__",
-              "value": "__amulet_fusion_option_options_0_engrave_value__"
-            },
-            "buff": "__amulet_fusion_option_options_0_buff__",
-            "explain": "__amulet_fusion_option_options_0_explain__",
-            "explainDetail": "__amulet_fusion_option_options_0_explain_detail__",
-            "buffExplain": "__amulet_fusion_option_options_0_buff_explain__",
-            "buffExplainDetail": "__amulet_fusion_option_options_0_buff_explain_detail__"
-          },
-          {
-            "explain": "__amulet_fusion_option_options_1_explain__",
-            "explainDetail": "__amulet_fusion_option_options_1_explain_detail__"
-          },
-          {
-            "explain": "__amulet_fusion_option_options_2_explain__",
-            "explainDetail": "__amulet_fusion_option_options_2_explain_detail__"
-          }
-        ]
-      },
+      "fusionOption": "__amulet_fusion_option__",
       "upgradeInfo": {
         "itemId": "__amulet_upgrade_info_item_id__",
         "itemName": "__amulet_upgrade_info_item_name__",
@@ -352,29 +280,7 @@
       "enchant": "__wrist_enchant__",
       "amplificationName": "__wrist_amplification_name__",
       "refine": "__wrist_refine__",
-      "fusionOption": {
-        "options": [
-          {
-            "engrave": {
-              "color": "__wrist_fusion_option_options_0_engrave_color__",
-              "value": "__wrist_fusion_option_options_0_engrave_value__"
-            },
-            "buff": "__wrist_fusion_option_options_0_buff__",
-            "explain": "__wrist_fusion_option_options_0_explain__",
-            "explainDetail": "__wrist_fusion_option_options_0_explain_detail__",
-            "buffExplain": "__wrist_fusion_option_options_0_buff_explain__",
-            "buffExplainDetail": "__wrist_fusion_option_options_0_buff_explain_detail__"
-          },
-          {
-            "explain": "__wrist_fusion_option_options_1_explain__",
-            "explainDetail": "__wrist_fusion_option_options_1_explain_detail__"
-          },
-          {
-            "explain": "__wrist_fusion_option_options_2_explain__",
-            "explainDetail": "__wrist_fusion_option_options_2_explain_detail__"
-          }
-        ]
-      },
+      "fusionOption": "__wrist_fusion_option__",
       "upgradeInfo": {
         "itemId": "__wrist_upgrade_info_item_id__",
         "itemName": "__wrist_upgrade_info_item_name__",
@@ -405,17 +311,7 @@
       "enchant": "__ring_enchant__",
       "amplificationName": "__ring_amplification_name__",
       "refine": "__ring_refine__",
-      "fusionOption": {
-        "options": [
-          {
-            "buff": "__ring_fusion_option_options_buff__",
-            "explain": "__ring_fusion_option_options_explain__",
-            "explainDetail": "__ring_fusion_option_options_explain_detail__",
-            "buffExplain": "__ring_fusion_option_options_buff_explain__",
-            "buffExplainDetail": "__ring_fusion_option_options_buff_explain_detail__"
-          }
-        ]
-      },
+      "fusionOption": "__ring_fusion_option__",
       "upgradeInfo": {
         "itemId": "__ring_upgrade_info_item_id__",
         "itemName": "__ring_upgrade_info_item_name__",
@@ -447,29 +343,7 @@
       "enchant": "__support_enchant__",
       "amplificationName": "__support_amplification_name__",
       "refine": "__support_refine__",
-      "fusionOption": {
-        "options": [
-          {
-            "engrave": {
-              "color": "__support_fusion_option_options_0_engrave_color__",
-              "value": "__support_fusion_option_options_0_engrave_value__"
-            },
-            "buff": "__support_fusion_option_options_0_buff__",
-            "explain": "__support_fusion_option_options_0_explain__",
-            "explainDetail": "__support_fusion_option_options_0_explain_detail__",
-            "buffExplain": "__support_fusion_option_options_0_buff_explain__",
-            "buffExplainDetail": "__support_fusion_option_options_0_buff_explain_detail__"
-          },
-          {
-            "explain": "__support_fusion_option_options_1_explain__",
-            "explainDetail": "__support_fusion_option_options_1_explain_detail__"
-          },
-          {
-            "explain": "__support_fusion_option_options_2_explain__",
-            "explainDetail": "__support_fusion_option_options_2_explain_detail__"
-          }
-        ]
-      },
+      "fusionOption": "__support_fusion_option__",
       "upgradeInfo": {
         "itemId": "__support_upgrade_info_item_id__",
         "itemName": "__support_upgrade_info_item_name__",
@@ -500,17 +374,7 @@
       "enchant": "__magic_ston_enchant__",
       "amplificationName": "__magic_ston_amplification_name__",
       "refine": "__magic_ston_refine__",
-      "fusionOption": {
-        "options": [
-          {
-            "buff": "__magic_ston_fusion_option_options_buff__",
-            "explain": "__magic_ston_fusion_option_options_explain__",
-            "explainDetail": "__magic_ston_fusion_option_options_explain_detail__",
-            "buffExplain": "__magic_ston_fusion_option_options_buff_explain__",
-            "buffExplainDetail": "__magic_ston_fusion_option_options_buff_explain_detail__"
-          }
-        ]
-      },
+      "fusionOption": "__magic_ston_fusion_option__",
       "upgradeInfo": {
         "itemId": "__magic_ston_upgrade_info_item_id__",
         "itemName": "__magic_ston_upgrade_info_item_name__",
@@ -554,29 +418,7 @@
       "enchant": "__earring_enchant__",
       "amplificationName": "__earring_amplification_name__",
       "refine": "__earring_refine__",
-      "fusionOption": {
-        "options": [
-          {
-            "engrave": {
-              "color": "__earring_fusion_option_options_0_engrave_color__",
-              "value": "__earring_fusion_option_options_0_engrave_value__"
-            },
-            "buff": "__earring_fusion_option_options_0_buff__",
-            "explain": "__earring_fusion_option_options_0_explain__",
-            "explainDetail": "__earring_fusion_option_options_0_explain_detail__",
-            "buffExplain": "__earring_fusion_option_options_0_buff_explain__",
-            "buffExplainDetail": "__earring_fusion_option_options_0_buff_explain_detail__"
-          },
-          {
-            "explain": "__earring_fusion_option_options_1_explain__",
-            "explainDetail": "__earring_fusion_option_options_1_explain_detail__"
-          },
-          {
-            "explain": "__earring_fusion_option_options_2_explain__",
-            "explainDetail": "__earring_fusion_option_options_2_explain_detail__"
-          }
-        ]
-      },
+      "fusionOption": "__earring_fusion_option__",
       "upgradeInfo": {
         "itemId": "__earring_upgrade_info_item_id__",
         "itemName": "__earring_upgrade_info_item_name__",

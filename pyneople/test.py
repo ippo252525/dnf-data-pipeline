@@ -7,7 +7,7 @@ setup_logging(logging.INFO)
 
 sql = """
 SELECT character_id, server_id 
-FROM characters
+FROM staging_characters
 LIMIT 1000;
 """
 endpoints = ['character_equipment', 'character_avatar', 'character_status', 'character_creature']
@@ -27,6 +27,5 @@ CHARACTER_BASE_ENDPOINTS = [
 
 api_to_mongo(CHARACTER_BASE_ENDPOINTS, True, sql = sql)
 mongo_to_psql(CHARACTER_BASE_ENDPOINTS,
-              character_info_endpoints=['character_creature'],
               num_queue_to_psql_workers = 2,
               mongo_to_psql_pool_max_size=20)

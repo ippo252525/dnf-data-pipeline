@@ -152,6 +152,9 @@ def _mark_character_equipment_manually(data):
         
         # 마법부여 정보는 따로 전처리 함수를 이용함
         _mark_manually(equipment, 'enchant', slot_id)
+
+        # 융합장비 옵션 정보는 따로 전처리 함수를 이용함
+        _mark_manually(equipment, 'fusionOption', slot_id)
         
         # 유일 장비를 장착 할 수 있는 부위인 경우 해당 key를 추가한다
         if slot_id in HAS_EXALTED_INFO_SLOT_IDS:

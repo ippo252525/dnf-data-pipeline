@@ -29,7 +29,6 @@ class CharacterBaseSeeder(BaseSeeder):
                     cursor = await conn.cursor(kwargs['sql'])
                     while not self.shutdown_event.is_set():
                         rows_batch = await cursor.fetch(kwargs.get('seeder_batch_size', self.seeder_batch_size))
-                        print(rows_batch)
                         if not rows_batch:
                             break
                         await self._process_rows(rows_batch, **kwargs)
