@@ -1,0 +1,605 @@
+{
+  "serverId": "__server_id__",
+  "characterId": "__character_id__",
+  "characterName": "__character_name__",
+  "level": "__level__",
+  "jobId": "__job_id__",
+  "jobGrowId": "__job_grow_id__",
+  "jobName": "__job_name__",
+  "jobGrowName": "__job_grow_name__",
+  "fame": "__fame__",
+  "adventureName": "__adventure_name__",
+  "guildId": "__guild_id__",
+  "guildName": "__guild_name__",
+  "equipment": [
+    {
+      "slotId": "WEAPON",
+      "slotName": "__weapon_slot_name__",
+      "itemId": "__weapon_item_id__",
+      "itemName": "__weapon_item_name__",
+      "itemTypeId": "__weapon_item_type_id__",
+      "itemType": "__weapon_item_type__",
+      "itemTypeDetailId": "__weapon_item_type_detail_id__",
+      "itemTypeDetail": "__weapon_item_type_detail__",
+      "itemAvailableLevel": "__weapon_item_available_level__",
+      "itemRarity": "__weapon_item_rarity__",
+      "setItemId": "__weapon_set_item_id__",
+      "setItemName": "__weapon_set_item_name__",
+      "skin": {
+        "itemId": "__weapon_skin_item_id__",
+        "itemName": "__weapon_skin_item_name__",
+        "itemRarity": "__weapon_skin_item_rarity__"
+      },
+      "reinforce": "__weapon_reinforce__",
+      "itemGradeName": "__weapon_item_grade_name__",
+      "enchant": "__weapon_enchant__",
+      "amplificationName": "__weapon_amplification_name__",
+      "refine": "__weapon_refine__",
+      "engraveName": "__weapon_engrave_name__",
+      "tune": [
+        {
+          "level": "__weapon_tune_level__",
+          "upgrade": "__weapon_tune_upgrade__",
+          "status": [
+            {
+              "name": "__weapon_tune_status_name__",
+              "value": "__weapon_tune_status_value__"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slotId": "TITLE",
+      "slotName": "__title_slot_name__",
+      "itemId": "__title_item_id__",
+      "itemName": "__title_item_name__",
+      "itemTypeId": "__title_item_type_id__",
+      "itemType": "__title_item_type__",
+      "itemTypeDetailId": "__title_item_type_detail_id__",
+      "itemTypeDetail": "__title_item_type_detail__",
+      "itemAvailableLevel": "__title_item_available_level__",
+      "itemRarity": "__title_item_rarity__",
+      "setItemId": "__title_set_item_id__",
+      "setItemName": "__title_set_item_name__",
+      "reinforce": "__title_reinforce__",
+      "enchant": "__title_enchant__",
+      "amplificationName": "__title_amplification_name__",
+      "refine": "__title_refine__"
+    },
+    {
+      "slotId": "JACKET",
+      "slotName": "__jacket_slot_name__",
+      "itemId": "__jacket_item_id__",
+      "itemName": "__jacket_item_name__",
+      "itemTypeId": "__jacket_item_type_id__",
+      "itemType": "__jacket_item_type__",
+      "itemTypeDetailId": "__jacket_item_type_detail_id__",
+      "itemTypeDetail": "__jacket_item_type_detail__",
+      "itemAvailableLevel": "__jacket_item_available_level__",
+      "itemRarity": "__jacket_item_rarity__",
+      "setItemId": "__jacket_set_item_id__",
+      "setItemName": "__jacket_set_item_name__",
+      "reinforce": "__jacket_reinforce__",
+      "itemGradeName": "__jacket_item_grade_name__",
+      "enchant": "__jacket_enchant__",
+      "amplificationName": "__jacket_amplification_name__",
+      "refine": "__jacket_refine__",
+      "fusionOption": {
+        "options": [
+          {
+            "buff": "__jacket_fusion_option_options_buff__",
+            "explain": "__jacket_fusion_option_options_explain__",
+            "explainDetail": "__jacket_fusion_option_options_explain_detail__",
+            "buffExplain": "__jacket_fusion_option_options_buff_explain__",
+            "buffExplainDetail": "__jacket_fusion_option_options_buff_explain_detail__"
+          }
+        ]
+      },
+      "upgradeInfo": {
+        "itemId": "__jacket_upgrade_info_item_id__",
+        "itemName": "__jacket_upgrade_info_item_name__",
+        "itemRarity": "__jacket_upgrade_info_item_rarity__"
+      },
+      "tune": [
+        {
+          "level": "__jacket_tune_level__",
+          "setPoint": "__jacket_tune_set_point__"
+        }
+      ]
+    },
+    {
+      "slotId": "SHOULDER",
+      "slotName": "__shoulder_slot_name__",
+      "itemId": "__shoulder_item_id__",
+      "itemName": "__shoulder_item_name__",
+      "itemTypeId": "__shoulder_item_type_id__",
+      "itemType": "__shoulder_item_type__",
+      "itemTypeDetailId": "__shoulder_item_type_detail_id__",
+      "itemTypeDetail": "__shoulder_item_type_detail__",
+      "itemAvailableLevel": "__shoulder_item_available_level__",
+      "itemRarity": "__shoulder_item_rarity__",
+      "setItemId": "__shoulder_set_item_id__",
+      "setItemName": "__shoulder_set_item_name__",
+      "reinforce": "__shoulder_reinforce__",
+      "itemGradeName": "__shoulder_item_grade_name__",
+      "enchant": "__shoulder_enchant__",
+      "amplificationName": "__shoulder_amplification_name__",
+      "refine": "__shoulder_refine__",
+      "fusionOption": {
+        "options": [
+          {
+            "buff": "__shoulder_fusion_option_options_buff__",
+            "explain": "__shoulder_fusion_option_options_explain__",
+            "explainDetail": "__shoulder_fusion_option_options_explain_detail__",
+            "buffExplain": "__shoulder_fusion_option_options_buff_explain__",
+            "buffExplainDetail": "__shoulder_fusion_option_options_buff_explain_detail__"
+          }
+        ]
+      },
+      "upgradeInfo": {
+        "itemId": "__shoulder_upgrade_info_item_id__",
+        "itemName": "__shoulder_upgrade_info_item_name__",
+        "itemRarity": "__shoulder_upgrade_info_item_rarity__",
+        "setItemId": "__shoulder_upgrade_info_set_item_id__",
+        "setItemName": "__shoulder_upgrade_info_set_item_name__",
+        "setPoint": "__shoulder_upgrade_info_set_point__"
+      },
+      "tune": [
+        {
+          "level": "__shoulder_tune_level__",
+          "setPoint": "__shoulder_tune_set_point__"
+        }
+      ]
+    },
+    {
+      "slotId": "PANTS",
+      "slotName": "__pants_slot_name__",
+      "itemId": "__pants_item_id__",
+      "itemName": "__pants_item_name__",
+      "itemTypeId": "__pants_item_type_id__",
+      "itemType": "__pants_item_type__",
+      "itemTypeDetailId": "__pants_item_type_detail_id__",
+      "itemTypeDetail": "__pants_item_type_detail__",
+      "itemAvailableLevel": "__pants_item_available_level__",
+      "itemRarity": "__pants_item_rarity__",
+      "setItemId": "__pants_set_item_id__",
+      "setItemName": "__pants_set_item_name__",
+      "reinforce": "__pants_reinforce__",
+      "itemGradeName": "__pants_item_grade_name__",
+      "enchant": "__pants_enchant__",
+      "amplificationName": "__pants_amplification_name__",
+      "refine": "__pants_refine__",
+      "fusionOption": {
+        "options": [
+          {
+            "buff": "__pants_fusion_option_options_buff__",
+            "explain": "__pants_fusion_option_options_explain__",
+            "explainDetail": "__pants_fusion_option_options_explain_detail__",
+            "buffExplain": "__pants_fusion_option_options_buff_explain__",
+            "buffExplainDetail": "__pants_fusion_option_options_buff_explain_detail__"
+          }
+        ]
+      },
+      "upgradeInfo": {
+        "itemId": "__pants_upgrade_info_item_id__",
+        "itemName": "__pants_upgrade_info_item_name__",
+        "itemRarity": "__pants_upgrade_info_item_rarity__",
+        "setItemId": "__pants_upgrade_info_set_item_id__",
+        "setItemName": "__pants_upgrade_info_set_item_name__",
+        "setPoint": "__pants_upgrade_info_set_point__"
+      },
+      "tune": [
+        {
+          "level": "__pants_tune_level__",
+          "setPoint": "__pants_tune_set_point__"
+        }
+      ]
+    },
+    {
+      "slotId": "SHOES",
+      "slotName": "__shoes_slot_name__",
+      "itemId": "__shoes_item_id__",
+      "itemName": "__shoes_item_name__",
+      "itemTypeId": "__shoes_item_type_id__",
+      "itemType": "__shoes_item_type__",
+      "itemTypeDetailId": "__shoes_item_type_detail_id__",
+      "itemTypeDetail": "__shoes_item_type_detail__",
+      "itemAvailableLevel": "__shoes_item_available_level__",
+      "itemRarity": "__shoes_item_rarity__",
+      "setItemId": "__shoes_set_item_id__",
+      "setItemName": "__shoes_set_item_name__",
+      "reinforce": "__shoes_reinforce__",
+      "itemGradeName": "__shoes_item_grade_name__",
+      "enchant": "__shoes_enchant__",
+      "amplificationName": "__shoes_amplification_name__",
+      "refine": "__shoes_refine__",
+      "fusionOption": {
+        "options": [
+          {
+            "buff": "__shoes_fusion_option_options_buff__",
+            "explain": "__shoes_fusion_option_options_explain__",
+            "explainDetail": "__shoes_fusion_option_options_explain_detail__",
+            "buffExplain": "__shoes_fusion_option_options_buff_explain__",
+            "buffExplainDetail": "__shoes_fusion_option_options_buff_explain_detail__"
+          }
+        ]
+      },
+      "upgradeInfo": {
+        "itemId": "__shoes_upgrade_info_item_id__",
+        "itemName": "__shoes_upgrade_info_item_name__",
+        "itemRarity": "__shoes_upgrade_info_item_rarity__",
+        "setItemId": "__shoes_upgrade_info_set_item_id__",
+        "setItemName": "__shoes_upgrade_info_set_item_name__",
+        "setPoint": "__shoes_upgrade_info_set_point__"
+      },
+      "tune": [
+        {
+          "level": "__shoes_tune_level__",
+          "setPoint": "__shoes_tune_set_point__"
+        }
+      ]
+    },
+    {
+      "slotId": "WAIST",
+      "slotName": "__waist_slot_name__",
+      "itemId": "__waist_item_id__",
+      "itemName": "__waist_item_name__",
+      "itemTypeId": "__waist_item_type_id__",
+      "itemType": "__waist_item_type__",
+      "itemTypeDetailId": "__waist_item_type_detail_id__",
+      "itemTypeDetail": "__waist_item_type_detail__",
+      "itemAvailableLevel": "__waist_item_available_level__",
+      "itemRarity": "__waist_item_rarity__",
+      "setItemId": "__waist_set_item_id__",
+      "setItemName": "__waist_set_item_name__",
+      "reinforce": "__waist_reinforce__",
+      "itemGradeName": "__waist_item_grade_name__",
+      "enchant": "__waist_enchant__",
+      "amplificationName": "__waist_amplification_name__",
+      "refine": "__waist_refine__",
+      "fusionOption": {
+        "options": [
+          {
+            "buff": "__waist_fusion_option_options_buff__",
+            "explain": "__waist_fusion_option_options_explain__",
+            "explainDetail": "__waist_fusion_option_options_explain_detail__",
+            "buffExplain": "__waist_fusion_option_options_buff_explain__",
+            "buffExplainDetail": "__waist_fusion_option_options_buff_explain_detail__"
+          }
+        ]
+      },
+      "upgradeInfo": {
+        "itemId": "__waist_upgrade_info_item_id__",
+        "itemName": "__waist_upgrade_info_item_name__",
+        "itemRarity": "__waist_upgrade_info_item_rarity__"
+      },
+      "tune": [
+        {
+          "level": "__waist_tune_level__",
+          "setPoint": "__waist_tune_set_point__"
+        }
+      ]
+    },
+    {
+      "slotId": "AMULET",
+      "slotName": "__amulet_slot_name__",
+      "itemId": "__amulet_item_id__",
+      "itemName": "__amulet_item_name__",
+      "itemTypeId": "__amulet_item_type_id__",
+      "itemType": "__amulet_item_type__",
+      "itemTypeDetailId": "__amulet_item_type_detail_id__",
+      "itemTypeDetail": "__amulet_item_type_detail__",
+      "itemAvailableLevel": "__amulet_item_available_level__",
+      "itemRarity": "__amulet_item_rarity__",
+      "setItemId": "__amulet_set_item_id__",
+      "setItemName": "__amulet_set_item_name__",
+      "reinforce": "__amulet_reinforce__",
+      "itemGradeName": "__amulet_item_grade_name__",
+      "enchant": "__amulet_enchant__",
+      "amplificationName": "__amulet_amplification_name__",
+      "refine": "__amulet_refine__",
+      "fusionOption": {
+        "options": [
+          {
+            "engrave": {
+              "color": "__amulet_fusion_option_options_0_engrave_color__",
+              "value": "__amulet_fusion_option_options_0_engrave_value__"
+            },
+            "buff": "__amulet_fusion_option_options_0_buff__",
+            "explain": "__amulet_fusion_option_options_0_explain__",
+            "explainDetail": "__amulet_fusion_option_options_0_explain_detail__",
+            "buffExplain": "__amulet_fusion_option_options_0_buff_explain__",
+            "buffExplainDetail": "__amulet_fusion_option_options_0_buff_explain_detail__"
+          },
+          {
+            "explain": "__amulet_fusion_option_options_1_explain__",
+            "explainDetail": "__amulet_fusion_option_options_1_explain_detail__"
+          },
+          {
+            "explain": "__amulet_fusion_option_options_2_explain__",
+            "explainDetail": "__amulet_fusion_option_options_2_explain_detail__"
+          }
+        ]
+      },
+      "upgradeInfo": {
+        "itemId": "__amulet_upgrade_info_item_id__",
+        "itemName": "__amulet_upgrade_info_item_name__",
+        "itemRarity": "__amulet_upgrade_info_item_rarity__"
+      },
+      "tune": [
+        {
+          "level": "__amulet_tune_level__",
+          "setPoint": "__amulet_tune_set_point__"
+        }
+      ]
+    },
+    {
+      "slotId": "WRIST",
+      "slotName": "__wrist_slot_name__",
+      "itemId": "__wrist_item_id__",
+      "itemName": "__wrist_item_name__",
+      "itemTypeId": "__wrist_item_type_id__",
+      "itemType": "__wrist_item_type__",
+      "itemTypeDetailId": "__wrist_item_type_detail_id__",
+      "itemTypeDetail": "__wrist_item_type_detail__",
+      "itemAvailableLevel": "__wrist_item_available_level__",
+      "itemRarity": "__wrist_item_rarity__",
+      "setItemId": "__wrist_set_item_id__",
+      "setItemName": "__wrist_set_item_name__",
+      "reinforce": "__wrist_reinforce__",
+      "itemGradeName": "__wrist_item_grade_name__",
+      "enchant": "__wrist_enchant__",
+      "amplificationName": "__wrist_amplification_name__",
+      "refine": "__wrist_refine__",
+      "fusionOption": {
+        "options": [
+          {
+            "engrave": {
+              "color": "__wrist_fusion_option_options_0_engrave_color__",
+              "value": "__wrist_fusion_option_options_0_engrave_value__"
+            },
+            "buff": "__wrist_fusion_option_options_0_buff__",
+            "explain": "__wrist_fusion_option_options_0_explain__",
+            "explainDetail": "__wrist_fusion_option_options_0_explain_detail__",
+            "buffExplain": "__wrist_fusion_option_options_0_buff_explain__",
+            "buffExplainDetail": "__wrist_fusion_option_options_0_buff_explain_detail__"
+          },
+          {
+            "explain": "__wrist_fusion_option_options_1_explain__",
+            "explainDetail": "__wrist_fusion_option_options_1_explain_detail__"
+          },
+          {
+            "explain": "__wrist_fusion_option_options_2_explain__",
+            "explainDetail": "__wrist_fusion_option_options_2_explain_detail__"
+          }
+        ]
+      },
+      "upgradeInfo": {
+        "itemId": "__wrist_upgrade_info_item_id__",
+        "itemName": "__wrist_upgrade_info_item_name__",
+        "itemRarity": "__wrist_upgrade_info_item_rarity__"
+      },
+      "tune": [
+        {
+          "level": "__wrist_tune_level__",
+          "setPoint": "__wrist_tune_set_point__"
+        }
+      ]
+    },
+    {
+      "slotId": "RING",
+      "slotName": "__ring_slot_name__",
+      "itemId": "__ring_item_id__",
+      "itemName": "__ring_item_name__",
+      "itemTypeId": "__ring_item_type_id__",
+      "itemType": "__ring_item_type__",
+      "itemTypeDetailId": "__ring_item_type_detail_id__",
+      "itemTypeDetail": "__ring_item_type_detail__",
+      "itemAvailableLevel": "__ring_item_available_level__",
+      "itemRarity": "__ring_item_rarity__",
+      "setItemId": "__ring_set_item_id__",
+      "setItemName": "__ring_set_item_name__",
+      "reinforce": "__ring_reinforce__",
+      "itemGradeName": "__ring_item_grade_name__",
+      "enchant": "__ring_enchant__",
+      "amplificationName": "__ring_amplification_name__",
+      "refine": "__ring_refine__",
+      "fusionOption": {
+        "options": [
+          {
+            "buff": "__ring_fusion_option_options_buff__",
+            "explain": "__ring_fusion_option_options_explain__",
+            "explainDetail": "__ring_fusion_option_options_explain_detail__",
+            "buffExplain": "__ring_fusion_option_options_buff_explain__",
+            "buffExplainDetail": "__ring_fusion_option_options_buff_explain_detail__"
+          }
+        ]
+      },
+      "upgradeInfo": {
+        "itemId": "__ring_upgrade_info_item_id__",
+        "itemName": "__ring_upgrade_info_item_name__",
+        "itemRarity": "__ring_upgrade_info_item_rarity__"
+      },
+      "tune": [
+        {
+          "level": "__ring_tune_level__",
+          "upgrade": "__ring_tune_upgrade__",
+          "setPoint": "__ring_tune_set_point__"
+        }
+      ]
+    },
+    {
+      "slotId": "SUPPORT",
+      "slotName": "__support_slot_name__",
+      "itemId": "__support_item_id__",
+      "itemName": "__support_item_name__",
+      "itemTypeId": "__support_item_type_id__",
+      "itemType": "__support_item_type__",
+      "itemTypeDetailId": "__support_item_type_detail_id__",
+      "itemTypeDetail": "__support_item_type_detail__",
+      "itemAvailableLevel": "__support_item_available_level__",
+      "itemRarity": "__support_item_rarity__",
+      "setItemId": "__support_set_item_id__",
+      "setItemName": "__support_set_item_name__",
+      "reinforce": "__support_reinforce__",
+      "itemGradeName": "__support_item_grade_name__",
+      "enchant": "__support_enchant__",
+      "amplificationName": "__support_amplification_name__",
+      "refine": "__support_refine__",
+      "fusionOption": {
+        "options": [
+          {
+            "engrave": {
+              "color": "__support_fusion_option_options_0_engrave_color__",
+              "value": "__support_fusion_option_options_0_engrave_value__"
+            },
+            "buff": "__support_fusion_option_options_0_buff__",
+            "explain": "__support_fusion_option_options_0_explain__",
+            "explainDetail": "__support_fusion_option_options_0_explain_detail__",
+            "buffExplain": "__support_fusion_option_options_0_buff_explain__",
+            "buffExplainDetail": "__support_fusion_option_options_0_buff_explain_detail__"
+          },
+          {
+            "explain": "__support_fusion_option_options_1_explain__",
+            "explainDetail": "__support_fusion_option_options_1_explain_detail__"
+          },
+          {
+            "explain": "__support_fusion_option_options_2_explain__",
+            "explainDetail": "__support_fusion_option_options_2_explain_detail__"
+          }
+        ]
+      },
+      "upgradeInfo": {
+        "itemId": "__support_upgrade_info_item_id__",
+        "itemName": "__support_upgrade_info_item_name__",
+        "itemRarity": "__support_upgrade_info_item_rarity__"
+      },
+      "tune": [
+        {
+          "level": "__support_tune_level__",
+          "setPoint": "__support_tune_set_point__"
+        }
+      ]
+    },
+    {
+      "slotId": "MAGIC_STON",
+      "slotName": "__magic_ston_slot_name__",
+      "itemId": "__magic_ston_item_id__",
+      "itemName": "__magic_ston_item_name__",
+      "itemTypeId": "__magic_ston_item_type_id__",
+      "itemType": "__magic_ston_item_type__",
+      "itemTypeDetailId": "__magic_ston_item_type_detail_id__",
+      "itemTypeDetail": "__magic_ston_item_type_detail__",
+      "itemAvailableLevel": "__magic_ston_item_available_level__",
+      "itemRarity": "__magic_ston_item_rarity__",
+      "setItemId": "__magic_ston_set_item_id__",
+      "setItemName": "__magic_ston_set_item_name__",
+      "reinforce": "__magic_ston_reinforce__",
+      "itemGradeName": "__magic_ston_item_grade_name__",
+      "enchant": "__magic_ston_enchant__",
+      "amplificationName": "__magic_ston_amplification_name__",
+      "refine": "__magic_ston_refine__",
+      "fusionOption": {
+        "options": [
+          {
+            "buff": "__magic_ston_fusion_option_options_buff__",
+            "explain": "__magic_ston_fusion_option_options_explain__",
+            "explainDetail": "__magic_ston_fusion_option_options_explain_detail__",
+            "buffExplain": "__magic_ston_fusion_option_options_buff_explain__",
+            "buffExplainDetail": "__magic_ston_fusion_option_options_buff_explain_detail__"
+          }
+        ]
+      },
+      "upgradeInfo": {
+        "itemId": "__magic_ston_upgrade_info_item_id__",
+        "itemName": "__magic_ston_upgrade_info_item_name__",
+        "itemRarity": "__magic_ston_upgrade_info_item_rarity__",
+        "setItemId": "__magic_ston_upgrade_info_set_item_id__",
+        "setItemName": "__magic_ston_upgrade_info_set_item_name__",
+        "setPoint": "__magic_ston_upgrade_info_set_point__"
+      },
+      "tune": [
+        {
+          "level": "__magic_ston_tune_level__",
+          "setPoint": "__magic_ston_tune_set_point__"
+        }
+      ],
+      "exaltedInfo": {
+        "damage": "__magic_ston_exalted_info_damage__",
+        "buff": "__magic_ston_exalted_info_buff__",
+        "explain": "__magic_ston_exalted_info_explain__"
+      },
+      "potency": {
+        "value": "__magic_ston_potency_value__",
+        "damage": "__magic_ston_potency_damage__",
+        "buff": "__magic_ston_potency_buff__"
+      }
+    },
+    {
+      "slotId": "EARRING",
+      "slotName": "__earring_slot_name__",
+      "itemId": "__earring_item_id__",
+      "itemName": "__earring_item_name__",
+      "itemTypeId": "__earring_item_type_id__",
+      "itemType": "__earring_item_type__",
+      "itemTypeDetailId": "__earring_item_type_detail_id__",
+      "itemTypeDetail": "__earring_item_type_detail__",
+      "itemAvailableLevel": "__earring_item_available_level__",
+      "itemRarity": "__earring_item_rarity__",
+      "setItemId": "__earring_set_item_id__",
+      "setItemName": "__earring_set_item_name__",
+      "reinforce": "__earring_reinforce__",
+      "itemGradeName": "__earring_item_grade_name__",
+      "enchant": "__earring_enchant__",
+      "amplificationName": "__earring_amplification_name__",
+      "refine": "__earring_refine__",
+      "fusionOption": {
+        "options": [
+          {
+            "engrave": {
+              "color": "__earring_fusion_option_options_0_engrave_color__",
+              "value": "__earring_fusion_option_options_0_engrave_value__"
+            },
+            "buff": "__earring_fusion_option_options_0_buff__",
+            "explain": "__earring_fusion_option_options_0_explain__",
+            "explainDetail": "__earring_fusion_option_options_0_explain_detail__",
+            "buffExplain": "__earring_fusion_option_options_0_buff_explain__",
+            "buffExplainDetail": "__earring_fusion_option_options_0_buff_explain_detail__"
+          },
+          {
+            "explain": "__earring_fusion_option_options_1_explain__",
+            "explainDetail": "__earring_fusion_option_options_1_explain_detail__"
+          },
+          {
+            "explain": "__earring_fusion_option_options_2_explain__",
+            "explainDetail": "__earring_fusion_option_options_2_explain_detail__"
+          }
+        ]
+      },
+      "upgradeInfo": {
+        "itemId": "__earring_upgrade_info_item_id__",
+        "itemName": "__earring_upgrade_info_item_name__",
+        "itemRarity": "__earring_upgrade_info_item_rarity__"
+      },
+      "tune": [
+        {
+          "level": "__earring_tune_level__",
+          "upgrade": "__earring_tune_upgrade__",
+          "setPoint": "__earring_tune_set_point__"
+        }
+      ],
+      "exaltedInfo": {
+        "damage": "__earring_exalted_info_damage__",
+        "buff": "__earring_exalted_info_buff__",
+        "explain": "__earring_exalted_info_explain__"
+      },
+      "potency": {
+        "value": "__earring_potency_value__",
+        "damage": "__earring_potency_damage__",
+        "buff": "__earring_potency_buff__"
+      }
+    }
+  ],
+  "setItemInfo": "__set_item_info__"
+}

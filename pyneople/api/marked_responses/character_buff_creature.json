@@ -1,0 +1,27 @@
+{
+  "serverId": "__server_id__",
+  "characterId": "__character_id__",
+  "characterName": "__character_name__",
+  "level": "__level__",
+  "jobId": "__job_id__",
+  "jobGrowId": "__job_grow_id__",
+  "jobName": "__job_name__",
+  "jobGrowName": "__job_grow_name__",
+  "fame": "__fame__",
+  "adventureName": "__adventure_name__",
+  "guildId": "__guild_id__",
+  "guildName": "__guild_name__",
+  "skill": {
+    "buff": {
+      "skillInfo": "__skill_info__",
+      "creature": [
+        {
+          "itemId": "__buff_creature_item_id__",
+          "itemName": "__buff_creature_item_name__",
+          "itemRarity": "__buff_creature_item_rarity__",
+          "enchant": "__buff_creature_enchant__"
+        }
+      ]
+    }
+  }
+}

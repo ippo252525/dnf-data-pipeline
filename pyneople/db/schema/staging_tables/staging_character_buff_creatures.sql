@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS "staging_character_buff_creatures" (
+  "server_id" TEXT,
+  "character_id" CHAR(32),
+  "character_name" TEXT,
+  "level" INT,
+  "job_id" CHAR(32),
+  "job_grow_id" CHAR(32),
+  "job_name" TEXT,
+  "job_grow_name" TEXT,
+  "fame" INT,
+  "adventure_name" TEXT,
+  "guild_id" CHAR(32),
+  "guild_name" TEXT,
+  "skill_info" TEXT,
+  "buff_creature_item_id" CHAR(32),
+  "buff_creature_item_name" TEXT,
+  "buff_creature_item_rarity" TEXT,
+  "buff_creature_enchant" TEXT,
+  "fetched_at" TIMESTAMP WITH TIME ZONE
+);

@@ -1,0 +1,394 @@
+{
+  "serverId": "__server_id__",
+  "characterId": "__character_id__",
+  "characterName": "__character_name__",
+  "level": "__level__",
+  "jobId": "__job_id__",
+  "jobGrowId": "__job_grow_id__",
+  "jobName": "__job_name__",
+  "jobGrowName": "__job_grow_name__",
+  "fame": "__fame__",
+  "adventureName": "__adventure_name__",
+  "guildId": "__guild_id__",
+  "guildName": "__guild_name__",
+  "buff": [
+    {
+      "name": "모험단 버프",
+      "level": "__buff_adventure_level__",
+      "status": [
+        {
+          "name": "힘",
+          "value": "__buff_adventure_status_strength_value__"
+        },
+        {
+          "name": "지능",
+          "value": "__buff_adventure_status_intelligence_value__"
+        },
+        {
+          "name": "체력",
+          "value": "__buff_adventure_status_vitality_value__"
+        },
+        {
+          "name": "정신력",
+          "value": "__buff_adventure_status_spirit_value__"
+        }
+      ]
+    },
+    {
+      "name": "무제한 길드능력치",
+      "status": [
+        {
+          "name": "힘",
+          "value": "__buff_permanent_guild_stats_status_strength_value__"
+        },
+        {
+          "name": "지능",
+          "value": "__buff_permanent_guild_stats_status_intelligence_value__"
+        },
+        {
+          "name": "체력",
+          "value": "__buff_permanent_guild_stats_status_vitality_value__"
+        },
+        {
+          "name": "정신력",
+          "value": "__buff_permanent_guild_stats_status_spirit_value__"
+        }
+      ]
+    },
+    {
+      "name": "기간제 길드능력치",
+      "status": [
+        {
+          "name": "힘",
+          "value": "__buff_temporary_guild_stats_status_strength_value__"
+        },
+        {
+          "name": "지능",
+          "value": "__buff_temporary_guild_stats_status_intelligence_value__"
+        },
+        {
+          "name": "체력",
+          "value": "__buff_temporary_guild_stats_status_vitality_value__"
+        },
+        {
+          "name": "정신력",
+          "value": "__buff_temporary_guild_stats_status_spirit_value__"
+        }
+      ]
+    }
+  ],
+  "status": [
+    {
+      "name": "HP",
+      "value": "__status_hp_value__"
+    },
+    {
+      "name": "MP",
+      "value": "__status_mp_value__"
+    },
+    {
+      "name": "물리 방어율",
+      "value": "__status_physical_defense_rate_value__"
+    },
+    {
+      "name": "마법 방어율",
+      "value": "__status_magical_defense_rate_value__"
+    },
+    {
+      "name": "힘",
+      "value": "__status_strength_value__"
+    },
+    {
+      "name": "지능",
+      "value": "__status_intelligence_value__"
+    },
+    {
+      "name": "체력",
+      "value": "__status_vitality_value__"
+    },
+    {
+      "name": "정신력",
+      "value": "__status_spirit_value__"
+    },
+    {
+      "name": "물리 공격",
+      "value": "__status_physical_attack_value__"
+    },
+    {
+      "name": "마법 공격",
+      "value": "__status_magical_attack_value__"
+    },
+    {
+      "name": "물리 크리티컬",
+      "value": "__status_physical_critical_chance_value__"
+    },
+    {
+      "name": "마법 크리티컬",
+      "value": "__status_magical_critical_chance_value__"
+    },
+    {
+      "name": "독립 공격",
+      "value": "__status_independent_attack_value__"
+    },
+    {
+      "name": "공격 속도",
+      "value": "__status_attack_speed_value__"
+    },
+    {
+      "name": "캐스팅 속도",
+      "value": "__status_casting_speed_value__"
+    },
+    {
+      "name": "이동 속도",
+      "value": "__status_movement_speed_value__"
+    },
+    {
+      "name": "모험가 명성",
+      "value": "__status_fame_value__"
+    },
+    {
+      "name": "적중률",
+      "value": "__status_hit_rate_value__"
+    },
+    {
+      "name": "회피율",
+      "value": "__status_evasion_rate_value__"
+    },
+    {
+      "name": "HP 회복량",
+      "value": "__status_hp_recovery_value__"
+    },
+    {
+      "name": "MP 회복량",
+      "value": "__status_mp_recovery_value__"
+    },
+    {
+      "name": "경직도",
+      "value": "__status_stiffness_value__"
+    },
+    {
+      "name": "히트리커버리",
+      "value": "__status_hit_recovery_value__"
+    },
+    {
+      "name": "화속성 강화",
+      "value": "__status_fire_element_enhancement_value__"
+    },
+    {
+      "name": "화속성 저항",
+      "value": "__status_fire_element_resistance_value__"
+    },
+    {
+      "name": "수속성 강화",
+      "value": "__status_water_element_enhancement_value__"
+    },
+    {
+      "name": "수속성 저항",
+      "value": "__status_water_element_resistance_value__"
+    },
+    {
+      "name": "명속성 강화",
+      "value": "__status_light_element_enhancement_value__"
+    },
+    {
+      "name": "명속성 저항",
+      "value": "__status_light_element_resistance_value__"
+    },
+    {
+      "name": "암속성 강화",
+      "value": "__status_dark_element_enhancement_value__"
+    },
+    {
+      "name": "암속성 저항",
+      "value": "__status_dark_element_resistance_value__"
+    },
+    {
+      "name": "물리 방어",
+      "value": "__status_physical_defense_value__"
+    },
+    {
+      "name": "마법 방어",
+      "value": "__status_magical_defense_value__"
+    },
+    {
+      "name": "공격력 증가",
+      "value": "__status_attack_power_increase_value__"
+    },
+    {
+      "name": "버프력",
+      "value": "__status_buff_power_value__"
+    },
+    {
+      "name": "공격력 증폭",
+      "value": "__status_attack_power_amplification_value__"
+    },
+    {
+      "name": "버프력 증폭",
+      "value": "__status_buff_power_amplification_value__"
+    },
+    {
+      "name": "최종 데미지 증가",
+      "value": "__status_final_damage_increase_value__"
+    },
+    {
+      "name": "쿨타임 감소",
+      "value": "__status_cooldown_reduction_value__"
+    },
+    {
+      "name": "쿨타임 회복속도",
+      "value": "__status_cooldown_recovery_rate_value__"
+    },
+    {
+      "name": "최종 쿨타임 감소율",
+      "value": "__status_final_cooldown_reduction_rate_value__"
+    },
+    {
+      "name": "데미지 증가",
+      "value": "__status_damage_increase_value__"
+    },
+    {
+      "name": "크리티컬 데미지 증가",
+      "value": "__status_critical_damage_increase_value__"
+    },
+    {
+      "name": "추가 데미지 증가",
+      "value": "__status_additional_damage_increase_value__"
+    },
+    {
+      "name": "모든 공격력 증가",
+      "value": "__status_all_attack_power_increase_value__"
+    },
+    {
+      "name": "물리 공격력 증가",
+      "value": "__status_physical_attack_power_increase_value__"
+    },
+    {
+      "name": "마법 공격력 증가",
+      "value": "__status_magical_attack_power_increase_value__"
+    },
+    {
+      "name": "독립 공격력 증가",
+      "value": "__status_independent_attack_power_increase_value__"
+    },
+    {
+      "name": "힘 증가",
+      "value": "__status_strength_increase_value__"
+    },
+    {
+      "name": "지능 증가",
+      "value": "__status_intelligence_increase_value__"
+    },
+    {
+      "name": "지속피해",
+      "value": "__status_damage_over_time_value__"
+    },
+    {
+      "name": "물리 피해 감소",
+      "value": "__status_physical_damage_reduction_value__"
+    },
+    {
+      "name": "마법 피해 감소",
+      "value": "__status_magical_damage_reduction_value__"
+    },
+    {
+      "name": "출혈 피해 전환",
+      "value": "__status_bleed_damage_conversion_value__"
+    },
+    {
+      "name": "중독 피해 전환",
+      "value": "__status_poison_damage_conversion_value__"
+    },
+    {
+      "name": "화상 피해 전환",
+      "value": "__status_burn_damage_conversion_value__"
+    },
+    {
+      "name": "감전 피해 전환",
+      "value": "__status_electrocution_damage_conversion_value__"
+    },
+    {
+      "name": "출혈 내성",
+      "value": "__status_bleed_resistance_value__"
+    },
+    {
+      "name": "중독 내성",
+      "value": "__status_poison_resistance_value__"
+    },
+    {
+      "name": "화상 내성",
+      "value": "__status_burn_resistance_value__"
+    },
+    {
+      "name": "감전 내성",
+      "value": "__status_electrocution_resistance_value__"
+    },
+    {
+      "name": "빙결 내성",
+      "value": "__status_freeze_resistance_value__"
+    },
+    {
+      "name": "둔화 내성",
+      "value": "__status_slow_resistance_value__"
+    },
+    {
+      "name": "기절 내성",
+      "value": "__status_stun_resistance_value__"
+    },
+    {
+      "name": "저주 내성",
+      "value": "__status_curse_resistance_value__"
+    },
+    {
+      "name": "암흑 내성",
+      "value": "__status_darkness_resistance_value__"
+    },
+    {
+      "name": "석화 내성",
+      "value": "__status_petrification_resistance_value__"
+    },
+    {
+      "name": "수면 내성",
+      "value": "__status_sleep_resistance_value__"
+    },
+    {
+      "name": "혼란 내성",
+      "value": "__status_confusion_resistance_value__"
+    },
+    {
+      "name": "구속 내성",
+      "value": "__status_restraint_resistance_value__"
+    },
+    {
+      "name": "화속성 피해",
+      "value": "__status_fire_element_damage_value__"
+    },
+    {
+      "name": "수속성 피해",
+      "value": "__status_water_element_damage_value__"
+    },
+    {
+      "name": "명속성 피해",
+      "value": "__status_light_element_damage_value__"
+    },
+    {
+      "name": "암속성 피해",
+      "value": "__status_dark_element_damage_value__"
+    },
+    {
+      "name": "출혈 피해",
+      "value": "__status_bleed_damage_value__"
+    },
+    {
+      "name": "중독 피해",
+      "value": "__status_poison_damage_value__"
+    },
+    {
+      "name": "화상 피해",
+      "value": "__status_burn_damage_value__"
+    },
+    {
+      "name": "감전 피해",
+      "value": "__status_electrocution_damage_value__"
+    }
+  ]
+}

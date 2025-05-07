@@ -1,0 +1,315 @@
+{
+  "serverId": "__server_id__",
+  "characterId": "__character_id__",
+  "characterName": "__character_name__",
+  "level": "__level__",
+  "jobId": "__job_id__",
+  "jobGrowId": "__job_grow_id__",
+  "jobName": "__job_name__",
+  "jobGrowName": "__job_grow_name__",
+  "fame": "__fame__",
+  "adventureName": "__adventure_name__",
+  "guildId": "__guild_id__",
+  "guildName": "__guild_name__",
+  "avatar": [
+    {
+      "slotId": "HEADGEAR",
+      "slotName": "__headgear_slot_name__",
+      "itemId": "__headgear_item_id__",
+      "itemName": "__headgear_item_name__",
+      "itemRarity": "__headgear_item_rarity__",
+      "clone": "__headgear_clone__",
+      "optionAbility": "__headgear_option_ability__",
+      "emblems": [
+        {
+          "slotNo": "__headgear_emblems_0_slot_no__",
+          "slotColor": "__headgear_emblems_0_slot_color__",
+          "itemId": "__headgear_emblems_0_item_id__",
+          "itemName": "__headgear_emblems_0_item_name__",
+          "itemRarity": "__headgear_emblems_0_item_rarity__"
+        },
+        {
+          "slotNo": "__headgear_emblems_1_slot_no__",
+          "slotColor": "__headgear_emblems_1_slot_color__",
+          "itemId": "__headgear_emblems_1_item_id__",
+          "itemName": "__headgear_emblems_1_item_name__",
+          "itemRarity": "__headgear_emblems_1_item_rarity__"
+        }
+      ]
+    },
+    {
+      "slotId": "HAIR",
+      "slotName": "__hair_slot_name__",
+      "itemId": "__hair_item_id__",
+      "itemName": "__hair_item_name__",
+      "itemRarity": "__hair_item_rarity__",
+      "clone": "__hair_clone__",
+      "optionAbility": "__hair_option_ability__",
+      "emblems": [
+        {
+          "slotNo": "__hair_emblems_0_slot_no__",
+          "slotColor": "__hair_emblems_0_slot_color__",
+          "itemId": "__hair_emblems_0_item_id__",
+          "itemName": "__hair_emblems_0_item_name__",
+          "itemRarity": "__hair_emblems_0_item_rarity__"
+        },
+        {
+          "slotNo": "__hair_emblems_1_slot_no__",
+          "slotColor": "__hair_emblems_1_slot_color__",
+          "itemId": "__hair_emblems_1_item_id__",
+          "itemName": "__hair_emblems_1_item_name__",
+          "itemRarity": "__hair_emblems_1_item_rarity__"
+        }
+      ]
+    },
+    {
+      "slotId": "FACE",
+      "slotName": "__face_slot_name__",
+      "itemId": "__face_item_id__",
+      "itemName": "__face_item_name__",
+      "itemRarity": "__face_item_rarity__",
+      "clone": "__face_clone__",
+      "optionAbility": "__face_option_ability__",
+      "emblems": [
+        {
+          "slotNo": "__face_emblems_0_slot_no__",
+          "slotColor": "__face_emblems_0_slot_color__",
+          "itemId": "__face_emblems_0_item_id__",
+          "itemName": "__face_emblems_0_item_name__",
+          "itemRarity": "__face_emblems_0_item_rarity__"
+        },
+        {
+          "slotNo": "__face_emblems_1_slot_no__",
+          "slotColor": "__face_emblems_1_slot_color__",
+          "itemId": "__face_emblems_1_item_id__",
+          "itemName": "__face_emblems_1_item_name__",
+          "itemRarity": "__face_emblems_1_item_rarity__"
+        }
+      ]
+    },
+    {
+      "slotId": "JACKET",
+      "slotName": "__jacket_slot_name__",
+      "itemId": "__jacket_item_id__",
+      "itemName": "__jacket_item_name__",
+      "itemRarity": "__jacket_item_rarity__",
+      "clone": "__jacket_clone__",
+      "optionAbility": "__jacket_option_ability__",
+      "emblems": [
+        {
+          "slotNo": "__jacket_emblems_0_slot_no__",
+          "slotColor": "__jacket_emblems_0_slot_color__",
+          "itemId": "__jacket_emblems_0_item_id__",
+          "itemName": "__jacket_emblems_0_item_name__",
+          "itemRarity": "__jacket_emblems_0_item_rarity__"
+        },
+        {
+          "slotNo": "__jacket_emblems_1_slot_no__",
+          "slotColor": "__jacket_emblems_1_slot_color__",
+          "itemId": "__jacket_emblems_1_item_id__",
+          "itemName": "__jacket_emblems_1_item_name__",
+          "itemRarity": "__jacket_emblems_1_item_rarity__"
+        },
+        {
+          "slotNo": "__jacket_emblems_2_slot_no__",
+          "slotColor": "__jacket_emblems_2_slot_color__",
+          "itemId": "__jacket_emblems_2_item_id__",
+          "itemName": "__jacket_emblems_2_item_name__",
+          "itemRarity": "__jacket_emblems_2_item_rarity__"
+        }
+      ]
+    },
+    {
+      "slotId": "PANTS",
+      "slotName": "__pants_slot_name__",
+      "itemId": "__pants_item_id__",
+      "itemName": "__pants_item_name__",
+      "itemRarity": "__pants_item_rarity__",
+      "clone": "__pants_clone__",
+      "optionAbility": "__pants_option_ability__",
+      "emblems": [
+        {
+          "slotNo": "__pants_emblems_0_slot_no__",
+          "slotColor": "__pants_emblems_0_slot_color__",
+          "itemId": "__pants_emblems_0_item_id__",
+          "itemName": "__pants_emblems_0_item_name__",
+          "itemRarity": "__pants_emblems_0_item_rarity__"
+        },
+        {
+          "slotNo": "__pants_emblems_1_slot_no__",
+          "slotColor": "__pants_emblems_1_slot_color__",
+          "itemId": "__pants_emblems_1_item_id__",
+          "itemName": "__pants_emblems_1_item_name__",
+          "itemRarity": "__pants_emblems_1_item_rarity__"
+        },
+        {
+          "slotNo": "__pants_emblems_2_slot_no__",
+          "slotColor": "__pants_emblems_2_slot_color__",
+          "itemId": "__pants_emblems_2_item_id__",
+          "itemName": "__pants_emblems_2_item_name__",
+          "itemRarity": "__pants_emblems_2_item_rarity__"
+        }
+      ]
+    },
+    {
+      "slotId": "SHOES",
+      "slotName": "__shoes_slot_name__",
+      "itemId": "__shoes_item_id__",
+      "itemName": "__shoes_item_name__",
+      "itemRarity": "__shoes_item_rarity__",
+      "clone": "__shoes_clone__",
+      "optionAbility": "__shoes_option_ability__",
+      "emblems": [
+        {
+          "slotNo": "__shoes_emblems_0_slot_no__",
+          "slotColor": "__shoes_emblems_0_slot_color__",
+          "itemId": "__shoes_emblems_0_item_id__",
+          "itemName": "__shoes_emblems_0_item_name__",
+          "itemRarity": "__shoes_emblems_0_item_rarity__"
+        },
+        {
+          "slotNo": "__shoes_emblems_1_slot_no__",
+          "slotColor": "__shoes_emblems_1_slot_color__",
+          "itemId": "__shoes_emblems_1_item_id__",
+          "itemName": "__shoes_emblems_1_item_name__",
+          "itemRarity": "__shoes_emblems_1_item_rarity__"
+        }
+      ]
+    },
+    {
+      "slotId": "BREAST",
+      "slotName": "__breast_slot_name__",
+      "itemId": "__breast_item_id__",
+      "itemName": "__breast_item_name__",
+      "itemRarity": "__breast_item_rarity__",
+      "clone": "__breast_clone__",
+      "optionAbility": "__breast_option_ability__",
+      "emblems": [
+        {
+          "slotNo": "__breast_emblems_0_slot_no__",
+          "slotColor": "__breast_emblems_0_slot_color__",
+          "itemId": "__breast_emblems_0_item_id__",
+          "itemName": "__breast_emblems_0_item_name__",
+          "itemRarity": "__breast_emblems_0_item_rarity__"
+        },
+        {
+          "slotNo": "__breast_emblems_1_slot_no__",
+          "slotColor": "__breast_emblems_1_slot_color__",
+          "itemId": "__breast_emblems_1_item_id__",
+          "itemName": "__breast_emblems_1_item_name__",
+          "itemRarity": "__breast_emblems_1_item_rarity__"
+        }
+      ]
+    },
+    {
+      "slotId": "WAIST",
+      "slotName": "__waist_slot_name__",
+      "itemId": "__waist_item_id__",
+      "itemName": "__waist_item_name__",
+      "itemRarity": "__waist_item_rarity__",
+      "clone": "__waist_clone__",
+      "optionAbility": "__waist_option_ability__",
+      "emblems": [
+        {
+          "slotNo": "__waist_emblems_0_slot_no__",
+          "slotColor": "__waist_emblems_0_slot_color__",
+          "itemId": "__waist_emblems_0_item_id__",
+          "itemName": "__waist_emblems_0_item_name__",
+          "itemRarity": "__waist_emblems_0_item_rarity__"
+        },
+        {
+          "slotNo": "__waist_emblems_1_slot_no__",
+          "slotColor": "__waist_emblems_1_slot_color__",
+          "itemId": "__waist_emblems_1_item_id__",
+          "itemName": "__waist_emblems_1_item_name__",
+          "itemRarity": "__waist_emblems_1_item_rarity__"
+        }
+      ]
+    },
+    {
+      "slotId": "SKIN",
+      "slotName": "__skin_slot_name__",
+      "itemId": "__skin_item_id__",
+      "itemName": "__skin_item_name__",
+      "itemRarity": "__skin_item_rarity__",
+      "clone": "__skin_clone__",
+      "optionAbility": "__skin_option_ability__",
+      "emblems": [
+        {
+          "slotNo": "__skin_emblems_0_slot_no__",
+          "slotColor": "__skin_emblems_0_slot_color__",
+          "itemId": "__skin_emblems_0_item_id__",
+          "itemName": "__skin_emblems_0_item_name__",
+          "itemRarity": "__skin_emblems_0_item_rarity__"
+        },
+        {
+          "slotNo": "__skin_emblems_1_slot_no__",
+          "slotColor": "__skin_emblems_1_slot_color__",
+          "itemId": "__skin_emblems_1_item_id__",
+          "itemName": "__skin_emblems_1_item_name__",
+          "itemRarity": "__skin_emblems_1_item_rarity__"
+        }
+      ]
+    },
+    {
+      "slotId": "AURORA",
+      "slotName": "__aurora_slot_name__",
+      "itemId": "__aurora_item_id__",
+      "itemName": "__aurora_item_name__",
+      "itemRarity": "__aurora_item_rarity__",
+      "clone": "__aurora_clone__",
+      "optionAbility": "__aurora_option_ability__",
+      "emblems": [
+        {
+          "slotNo": "__aurora_emblems_0_slot_no__",
+          "slotColor": "__aurora_emblems_0_slot_color__",
+          "itemId": "__aurora_emblems_0_item_id__",
+          "itemName": "__aurora_emblems_0_item_name__",
+          "itemRarity": "__aurora_emblems_0_item_rarity__"
+        },
+        {
+          "slotNo": "__aurora_emblems_1_slot_no__",
+          "slotColor": "__aurora_emblems_1_slot_color__",
+          "itemId": "__aurora_emblems_1_item_id__",
+          "itemName": "__aurora_emblems_1_item_name__",
+          "itemRarity": "__aurora_emblems_1_item_rarity__"
+        }
+      ]
+    },
+    {
+      "slotId": "WEAPON",
+      "slotName": "__weapon_slot_name__",
+      "itemId": "__weapon_item_id__",
+      "itemName": "__weapon_item_name__",
+      "itemRarity": "__weapon_item_rarity__",
+      "clone": "__weapon_clone__",
+      "optionAbility": "__weapon_option_ability__",
+      "emblems": [
+        {
+          "slotNo": "__weapon_emblems_0_slot_no__",
+          "slotColor": "__weapon_emblems_0_slot_color__",
+          "itemId": "__weapon_emblems_0_item_id__",
+          "itemName": "__weapon_emblems_0_item_name__",
+          "itemRarity": "__weapon_emblems_0_item_rarity__"
+        },
+        {
+          "slotNo": "__weapon_emblems_1_slot_no__",
+          "slotColor": "__weapon_emblems_1_slot_color__",
+          "itemId": "__weapon_emblems_1_item_id__",
+          "itemName": "__weapon_emblems_1_item_name__",
+          "itemRarity": "__weapon_emblems_1_item_rarity__"
+        }
+      ]
+    },
+    {
+      "slotId": "AURA_SKIN",
+      "slotName": "__aura_skin_slot_name__",
+      "itemId": "__aura_skin_item_id__",
+      "itemName": "__aura_skin_item_name__",
+      "itemRarity": "__aura_skin_item_rarity__",
+      "clone": "__aura_skin_clone__",
+      "optionAbility": "__aura_skin_option_ability__",
+      "emblems": "__aura_skin_emblems__"
+    }
+  ]
+}

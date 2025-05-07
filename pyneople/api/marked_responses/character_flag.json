@@ -1,0 +1,47 @@
+{
+  "serverId": "__server_id__",
+  "characterId": "__character_id__",
+  "characterName": "__character_name__",
+  "level": "__level__",
+  "jobId": "__job_id__",
+  "jobGrowId": "__job_grow_id__",
+  "jobName": "__job_name__",
+  "jobGrowName": "__job_grow_name__",
+  "fame": "__fame__",
+  "adventureName": "__adventure_name__",
+  "guildId": "__guild_id__",
+  "guildName": "__guild_name__",
+  "flag": {
+    "itemId": "__item_id__",
+    "itemName": "__item_name__",
+    "itemRarity": "__item_rarity__",
+    "reinforce": "__reinforce__",
+    "reinforceStatus": "__reinforce_status__",
+    "gems": [
+      {
+        "slotNo": "__gems_0_slot_no__",
+        "itemId": "__gems_0_item_id__",
+        "itemName": "__gems_0_item_name__",
+        "itemRarity": "__gems_0_item_rarity__"
+      },
+      {
+        "slotNo": "__gems_1_slot_no__",
+        "itemId": "__gems_1_item_id__",
+        "itemName": "__gems_1_item_name__",
+        "itemRarity": "__gems_1_item_rarity__"
+      },
+      {
+        "slotNo": "__gems_2_slot_no__",
+        "itemId": "__gems_2_item_id__",
+        "itemName": "__gems_2_item_name__",
+        "itemRarity": "__gems_2_item_rarity__"
+      },
+      {
+        "slotNo": "__gems_3_slot_no__",
+        "itemId": "__gems_3_item_id__",
+        "itemName": "__gems_3_item_name__",
+        "itemRarity": "__gems_3_item_rarity__"
+      }
+    ]
+  }
+}

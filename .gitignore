@@ -135,6 +135,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.env.local
 
 # Spyder project settings
 .spyderproject
@@ -172,3 +173,18 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# 로그 파일 무시
+logs/*
+!logs/.gitkeep
+
+# 설정 파일 무시
+config/*
+!config/.gitkeep
+
+# 플러그인 내용 무시
+plugins/*
+!plugins/.gitkeep
+
+# 개발용 ipynb
+*.ipynb

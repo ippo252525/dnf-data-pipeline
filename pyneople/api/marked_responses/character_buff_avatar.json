@@ -1,0 +1,63 @@
+{
+  "serverId": "__server_id__",
+  "characterId": "__character_id__",
+  "characterName": "__character_name__",
+  "level": "__level__",
+  "jobId": "__job_id__",
+  "jobGrowId": "__job_grow_id__",
+  "jobName": "__job_name__",
+  "jobGrowName": "__job_grow_name__",
+  "fame": "__fame__",
+  "adventureName": "__adventure_name__",
+  "guildId": "__guild_id__",
+  "guildName": "__guild_name__",
+  "skill": {
+    "buff": {
+      "skillInfo": "__skill_info__",
+      "avatar": [
+        {
+          "slotId": "JACKET",
+          "slotName": "__buff_avatar_jacket_slot_name__",
+          "itemId": "__buff_avatar_jacket_item_id__",
+          "itemName": "__buff_avatar_jacket_item_name__",
+          "itemRarity": "__buff_avatar_jacket_item_rarity__",
+          "clone": {
+            "itemId": "__buff_avatar_jacket_clone_item_id__",
+            "itemName": "__buff_avatar_jacket_clone_item_name__"
+          },
+          "optionAbility": "__buff_avatar_jacket_option_ability__",
+          "emblems": [
+            {
+              "slotNo": "__buff_avatar_jacket_emblems_slot_no__",
+              "slotColor": "__buff_avatar_jacket_emblems_slot_color__",
+              "itemId": "__buff_avatar_jacket_emblems_item_id__",
+              "itemName": "__buff_avatar_jacket_emblems_item_name__",
+              "itemRarity": "__buff_avatar_jacket_emblems_item_rarity__"
+            }
+          ]
+        },
+        {
+          "slotId": "PANTS",
+          "slotName": "__buff_avatar_pants_slot_name__",
+          "itemId": "__buff_avatar_pants_item_id__",
+          "itemName": "__buff_avatar_pants_item_name__",
+          "itemRarity": "__buff_avatar_pants_item_rarity__",
+          "clone": {
+            "itemId": "__buff_avatar_pants_clone_item_id__",
+            "itemName": "__buff_avatar_pants_clone_item_name__"
+          },
+          "optionAbility": "__buff_avatar_pants_option_ability__",
+          "emblems": [
+            {
+              "slotNo": "__buff_avatar_pants_emblems_slot_no__",
+              "slotColor": "__buff_avatar_pants_emblems_slot_color__",
+              "itemId": "__buff_avatar_pants_emblems_item_id__",
+              "itemName": "__buff_avatar_pants_emblems_item_name__",
+              "itemRarity": "__buff_avatar_pants_emblems_item_rarity__"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

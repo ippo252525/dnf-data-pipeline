@@ -1,0 +1,46 @@
+{
+  "serverId": "__server_id__",
+  "characterId": "__character_id__",
+  "characterName": "__character_name__",
+  "level": "__level__",
+  "jobId": "__job_id__",
+  "jobGrowId": "__job_grow_id__",
+  "jobName": "__job_name__",
+  "jobGrowName": "__job_grow_name__",
+  "fame": "__fame__",
+  "adventureName": "__adventure_name__",
+  "guildId": "__guild_id__",
+  "guildName": "__guild_name__",
+  "creature": {
+    "itemId": "__item_id__",
+    "itemName": "__item_name__",
+    "itemRarity": "__item_rarity__",
+    "clone": {
+      "itemId": "__clone_item_id__",
+      "itemName": "__clone_item_name__"
+    },
+    "artifact": [
+      {
+        "slotColor": "RED",
+        "itemId": "__artifact_red_item_id__",
+        "itemName": "__artifact_red_item_name__",
+        "itemAvailableLevel": "__artifact_red_item_available_level__",
+        "itemRarity": "__artifact_red_item_rarity__"
+      },
+      {
+        "slotColor": "BLUE",
+        "itemId": "__artifact_blue_item_id__",
+        "itemName": "__artifact_blue_item_name__",
+        "itemAvailableLevel": "__artifact_blue_item_available_level__",
+        "itemRarity": "__artifact_blue_item_rarity__"
+      },
+      {
+        "slotColor": "GREEN",
+        "itemId": "__artifact_green_item_id__",
+        "itemName": "__artifact_green_item_name__",
+        "itemAvailableLevel": "__artifact_green_item_available_level__",
+        "itemRarity": "__artifact_green_item_rarity__"
+      }
+    ]
+  }
+}
