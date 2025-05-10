@@ -1,4 +1,4 @@
-CREATE TABLE character_timelines (
+CREATE TABLE IF NOT EXISTS character_timelines (
     id SERIAL PRIMARY KEY,
     character_id VARCHAR(64) NOT NULL,
     server_id VARCHAR(32) NOT NULL,

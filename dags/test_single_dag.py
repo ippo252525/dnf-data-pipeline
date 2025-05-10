@@ -5,6 +5,8 @@ from airflow.providers.standard.operators.python import PythonOperator
 from pyneople.api_to_mongo import api_to_mongo
 from datetime import datetime, timedelta
 
+from pyneople.mongo_to_psql import mongo_to_psql
+
 
 # Python 함수 정의
 def hello_world():
@@ -17,6 +19,22 @@ default_args = {
     'retry_delay': timedelta(minutes=1),
 }
 
+query = """
+SELECT character_id, server_id 
+FROM characters
+LIMIT 1000;
+"""
+endpoints = [
+    'character_info',
+    'character_timeline',
+    'character_status',
+    'character_equipment',
+    'character_avatar',
+    'character_creature',
+    'character_flag',
+    'character_buff_equipment'
+]
+
 # DAG 정의
 with DAG(
     dag_id='test_hello_world_dag',
@@ -28,10 +46,19 @@ with DAG(
     tags=['test'],
 ) as dag:
 
-    hello_task = PythonOperator(
-        task_id='say_hello',
+    to_mongo = PythonOperator(
+        task_id='to_mongo',
         python_callable=api_to_mongo,
-        op_kwargs = {'endpoints' : ['character_fame'], 'max_fame' : 10000}
+        op_kwargs = {'endpoints' : endpoints, 'sql' : query}
+    )
+    to_psql = PythonOperator(
+        task_id='to_psql',
+        python_callable=mongo_to_psql,
+        op_kwargs = {'endpoints' : endpoints, 
+                     'character_info_endpoints' : ['character_equipment'], 
+                     'num_queue_to_psql_workers' : 2,
+                     'mongo_to_psql_pool_max_size' : 20}
     )
 
-    hello_task
+
+    to_mongo >> to_psql

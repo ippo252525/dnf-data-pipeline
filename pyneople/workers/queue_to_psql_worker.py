@@ -72,8 +72,8 @@ class QueueToPSQLWorker:
                 logger.info(f'{self.name} : CancelledError 발생, unfinished_task : {self.num_unfinished_task}')
                 raise
             except Exception as e:
-                logger.error(f"{self.name} : 오류 발생")
-                # logger.error(f"{self.name} : 오류 발생\n{e}")
+                # logger.error(f"{self.name} : 오류 발생")
+                logger.error(f"{self.name} : 오류 발생\n{e}")
                 self.shutdown_event.set()
                 break
             finally:
@@ -107,7 +107,7 @@ class QueueToPSQLWorker:
                     break
             finally:        
                 if data is not None:
-                    self.num_unfinished_task += 1
+                    self.num_unfinished_task += 1        
             data = self.preprocess(data, TABLE_COLUMNS_MAP[self.table_name])
             if isinstance(data, list):
                 self.batch.extend(data)

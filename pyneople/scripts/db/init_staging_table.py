@@ -24,14 +24,14 @@ def main():
                 WHERE schemaname = '{Settings.POSTGRES_SCHEMA}' AND tablename LIKE 'staging%';
             """)
             tables = cur.fetchall()
-
+            tables = [i[0] for i in tables]
             # 모든 스테이징 테이블 삭제 DROP    
             for staging_table_name in tables:
                 cur.execute(f'DROP TABLE IF EXISTS "{staging_table_name}";')
             
             # 모든 스테이징 테이블 생성
             for sql_path in staging_table_sql_files:
-                execute_sql_file(sql_path, cur)            
+                execute_sql_file(sql_path, cur)
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,46 @@
+{
+  "serverId": "diregie",
+  "characterId": "d576dfb26518436c96efe28557970341",
+  "characterName": "루이히트맨",
+  "level": 115,
+  "jobId": "986c2b3d72ee0e4a0b7fcfbe786d4e02",
+  "jobGrowId": "37495b941da3b1661bc900e68ef3b2c6",
+  "jobName": "총검사",
+  "jobGrowName": "眞 히트맨",
+  "fame": 72108,
+  "adventureName": "루이",
+  "guildId": "2d39697a6d91d74a9739614e54ec6570",
+  "guildName": "사일런트힐",
+  "creature": {
+    "itemId": "b2358abfe3ea375267720b1a9d3dd598",
+    "itemName": "SD 흰 구름 전령 에를리히",
+    "itemRarity": "레어",
+    "clone": {
+      "itemId": "0c5bf054c7db1c9a7a2fc8f5d74b7a23",
+      "itemName": "핑크빈"
+    },
+    "artifact": [
+      {
+        "slotColor": "RED",
+        "itemId": "1e9ebef1ca9fd69fe4351e08be3cabb7",
+        "itemName": "황금빛 황혼의 공명",
+        "itemAvailableLevel": 0,
+        "itemRarity": "유니크"
+      },
+      {
+        "slotColor": "BLUE",
+        "itemId": "5330f82cecd788125b7ff1db008a0ed3",
+        "itemName": "칠흑같은 영원의 달빛",
+        "itemAvailableLevel": 0,
+        "itemRarity": "유니크"
+      },
+      {
+        "slotColor": "GREEN",
+        "itemId": "aecfe66a42894ce37646ebf629f616f9",
+        "itemName": "빛을 머금은 이슬",
+        "itemAvailableLevel": 0,
+        "itemRarity": "유니크"
+      }
+    ]
+  }
+}

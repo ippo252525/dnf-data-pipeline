@@ -1,4 +1,4 @@
-CREATE TABLE characters (
+CREATE TABLE IF NOT EXISTS characters (
     id SERIAL PRIMARY KEY,
     character_id VARCHAR(64) NOT NULL,
     server_id VARCHAR(32) NOT NULL,
@@ -8,6 +8,7 @@ CREATE TABLE characters (
     job_grow_name VARCHAR(64) NOT NULL,
     fame INTEGER NOT NULL,
     adventure_name VARCHAR(32),
+    guild_id CHAR(32),
     guild_name VARCHAR(64),
     fetched_at TIMESTAMP WITH TIME ZONE NOT NULL,
     is_active BOOLEAN NOT NULL DEFAULT TRUE,

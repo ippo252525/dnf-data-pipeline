@@ -1,6 +1,6 @@
 from motor.motor_asyncio import AsyncIOMotorCollection
-from pyneople.utils.api_utils.extract_character_info_data import extract_character_info_data
 from pyneople.config.config import Settings
+from pyneople.utils.api_utils.extract_character_info_data import extract_character_info_data
             
 class MongoRouter:
 

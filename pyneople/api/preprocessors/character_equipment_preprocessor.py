@@ -1,6 +1,6 @@
 from pyneople.api.data_path_map import CHARACTER_EQUIPMENT_DATA_PATH_MAP
 from pyneople.utils.api_utils.extract_values import extract_values
-from pyneople.utils.common import format_enchant_info
+from pyneople.utils.common import format_enchant_info, format_fusion_option_info
 from zoneinfo import ZoneInfo
 
 def preprocess_character_equipment(data : dict, columns : list):
@@ -18,4 +18,11 @@ def preprocess_character_equipment(data : dict, columns : list):
     if any(column.endswith('enchant') for column in columns):
         for column in [column for column in columns if column.endswith('enchant')]:
             data[column] = format_enchant_info(data[column])
+    
+    # 융합 옵션 정보 정리
+    if any(column.endswith('fusion_option') for column in columns):
+        for column in [column for column in columns if column.endswith('fusion_option')]:
+            data[column] = format_fusion_option_info(data[column])    
     return data
+
+    
