@@ -3,8 +3,6 @@ CREATE TABLE IF NOT EXISTS "staging_characters" (
   "character_id" CHAR(32),
   "character_name" TEXT,
   "level" INT,
-  "job_id" CHAR(32),
-  "job_grow_id" CHAR(32),
   "job_name" TEXT,
   "job_grow_name" TEXT,
   "fame" INT,

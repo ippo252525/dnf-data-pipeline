@@ -11,11 +11,18 @@ def _get_nested_value(data, path):
     path의 첫번째 값은 str을 가정한다.
     """
     current = data
+    # print(current)
     first_key = path[0]
     current = current.get(first_key)  
 
     for step in path[1:]:
+        #print(current)
         if current is None:
+            # print(current)
+            # print(path)
+            # print(step)
+            # print("커런트 없음")
+            # raise Exception
             return current
 
         if isinstance(step, tuple):
@@ -31,6 +38,7 @@ def _get_nested_value(data, path):
             else:
                 # raise ValueError(f"No matching item for {step}")
                 # logger.info(f"No matching item for {step}")
+                # print('리스트 다 돌았는데 없음')
                 return None
         elif isinstance(step, int):
 

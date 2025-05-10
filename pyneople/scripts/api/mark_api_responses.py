@@ -15,6 +15,7 @@ load_dotenv()
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 SAVE_DIR = os.path.abspath(os.path.join(BASE_DIR, '../../api/marked_responses/'))
+SAMPLE_RESPONSE_DIR = os.path.abspath(os.path.join(BASE_DIR, '../../api/sample_responses/'))
 
 # # server_id와 character_id만 요구하는 엔드포인트
 CHARACTER_BASE_ENDPOINTS = [
@@ -30,9 +31,6 @@ CHARACTER_BASE_ENDPOINTS = [
     'character_buff_avatar',
     'character_buff_creature'
 ]
-
-# 유일 장비를 착용 할 수 있는 부위
-HAS_EXALTED_INFO_SLOT_IDS = ['EARRING', 'MAGIC_STON']
 
 def _mark(s):
     s = s.strip('_')
@@ -154,21 +152,8 @@ def _mark_character_equipment_manually(data):
         _mark_manually(equipment, 'enchant', slot_id)
 
         # 융합장비 옵션 정보는 따로 전처리 함수를 이용함
-        _mark_manually(equipment, 'fusionOption', slot_id)
-        
-        # 유일 장비를 장착 할 수 있는 부위인 경우 해당 key를 추가한다
-        if slot_id in HAS_EXALTED_INFO_SLOT_IDS:
-            equipment['exaltedInfo'] = {
-                'damage' : f"__{to_snake_case(slot_id)}_exalted_info_damage__",
-                'buff' : f"__{to_snake_case(slot_id)}_exalted_info_buff__",
-                'explain' : f"__{to_snake_case(slot_id)}_exalted_info_explain__"
-            }
-            equipment['potency'] = {
-                'value' : f"__{to_snake_case(slot_id)}_potency_value__",
-                'damage' : f"__{to_snake_case(slot_id)}_potency_damage__",
-                'buff' : f"__{to_snake_case(slot_id)}_potency_buff__"
-            }
-                
+        _mark_manually(equipment, 'fusionOption', slot_id)   
+
     return data
 
 # Character Avatar
@@ -185,7 +170,7 @@ def _mark_character_flag_manually(data):
 
 # Character Buff
 def _mark_charater_buff_manually(data):
-    _mark_manually(data['skill']['buff'], 'skillInfo')
+    _mark_manually(data['skill']['buff'], 'equipment')
     return data
 
 # 엔드포인트에 따른 식별 key를 반환하는 dict
@@ -214,9 +199,9 @@ ENDPOINT_TO_MANUAL_MARK_FUNCTION = {
     'character_equipment' : _mark_character_equipment_manually,
     'character_avatar' : _mark_character_avatar_manually,
     'character_flag' : _mark_character_flag_manually,
-    'character_buff_equipment' : _mark_charater_buff_manually,
-    'character_buff_avatar' : _mark_charater_buff_manually,
-    'character_buff_creature' : _mark_charater_buff_manually,
+    'character_buff_equipment' : _mark_charater_buff_manually
+    # 'character_buff_avatar' : _mark_charater_buff_manually,
+    # 'character_buff_creature' : _mark_charater_buff_manually,
 } 
 
 
@@ -226,10 +211,9 @@ if __name__ == "__main__":
         identifier_key = ENDPOINT_TO_IDENTIFIER_KEY.get(endpoint)
         exclude_top_keys = ENDPOINT_TO_EXCLUDE_TOP_KEYS.get(endpoint)
         manual_mark_function = ENDPOINT_TO_MANUAL_MARK_FUNCTION.get(endpoint)
-        api_request = build_api_request(endpoint, apikey=Settings.API_KEYS[0], serverId=os.getenv('SAMPLE_SERVER_ID'), characterId=os.getenv('SAMPLE_CHARACTER_ID'))
-        url = build_url(api_request)
-        response = requests.get(url)
-        data = response.json()
+        with open(os.path.join(SAMPLE_RESPONSE_DIR, f'{endpoint}.json'), 'r', encoding='utf-8') as f:
+            data = json.load(f)
+
         file_path = os.path.join(SAVE_DIR, f"{endpoint}.json")
         with open(file_path, "w", encoding="utf-8") as f:
             # 기본 정보 마킹

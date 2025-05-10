@@ -1,0 +1,351 @@
+{
+  "serverId": "diregie",
+  "characterId": "d576dfb26518436c96efe28557970341",
+  "characterName": "루이히트맨",
+  "level": 115,
+  "jobId": "986c2b3d72ee0e4a0b7fcfbe786d4e02",
+  "jobGrowId": "37495b941da3b1661bc900e68ef3b2c6",
+  "jobName": "총검사",
+  "jobGrowName": "眞 히트맨",
+  "fame": 72108,
+  "adventureName": "루이",
+  "guildId": "2d39697a6d91d74a9739614e54ec6570",
+  "guildName": "사일런트힐",
+  "avatar": [
+    {
+      "slotId": "HEADGEAR",
+      "slotName": "모자 아바타",
+      "itemId": "7d06b3a6a5973a0bb4ff90c534ba4b94",
+      "itemName": "레어 모자 클론 아바타",
+      "itemRarity": "레어",
+      "clone": {
+        "itemId": null,
+        "itemName": null
+      },
+      "optionAbility": "정신력 55 증가",
+      "emblems": [
+        {
+          "slotNo": 1,
+          "slotColor": "붉은빛",
+          "itemId": "53ce398e5eb6c7e91a1b28e83ea3fafa",
+          "itemName": "찬란한 붉은빛 엠블렘[힘]",
+          "itemRarity": "유니크"
+        },
+        {
+          "slotNo": 2,
+          "slotColor": "붉은빛",
+          "itemId": "53ce398e5eb6c7e91a1b28e83ea3fafa",
+          "itemName": "찬란한 붉은빛 엠블렘[힘]",
+          "itemRarity": "유니크"
+        }
+      ]
+    },
+    {
+      "slotId": "HAIR",
+      "slotName": "머리 아바타",
+      "itemId": "96715668f1188d91d997c65869985e6b",
+      "itemName": "레어 머리 클론 아바타",
+      "itemRarity": "레어",
+      "clone": {
+        "itemId": "ec5e6adb34af17e244d345b9596c5edf",
+        "itemName": "사막의 수호자 호루스의 백금색 짧은 레게 머리[A타입]"
+      },
+      "optionAbility": "정신력 55 증가",
+      "emblems": [
+        {
+          "slotNo": 1,
+          "slotColor": "붉은빛",
+          "itemId": "53ce398e5eb6c7e91a1b28e83ea3fafa",
+          "itemName": "찬란한 붉은빛 엠블렘[힘]",
+          "itemRarity": "유니크"
+        },
+        {
+          "slotNo": 2,
+          "slotColor": "붉은빛",
+          "itemId": "53ce398e5eb6c7e91a1b28e83ea3fafa",
+          "itemName": "찬란한 붉은빛 엠블렘[힘]",
+          "itemRarity": "유니크"
+        }
+      ]
+    },
+    {
+      "slotId": "FACE",
+      "slotName": "얼굴 아바타",
+      "itemId": "5be638b9ecd3c484bd16d38da5daf59e",
+      "itemName": "레어 얼굴 클론 아바타",
+      "itemRarity": "레어",
+      "clone": {
+        "itemId": "73232ac046d10d4b22ea549f46f22598",
+        "itemName": "와일드럭셔리 안대와 수염[A타입]"
+      },
+      "optionAbility": "공격 속도 6.0% 증가",
+      "emblems": [
+        {
+          "slotNo": 1,
+          "slotColor": "노란빛",
+          "itemId": "c15f72ed60b848640f6200b40fd1793e",
+          "itemName": "찬란한 노란빛 엠블렘[공격속도]",
+          "itemRarity": "유니크"
+        },
+        {
+          "slotNo": 2,
+          "slotColor": "노란빛",
+          "itemId": "3de1f0a371e19a648d0cf6ec46dd895e",
+          "itemName": "찬란한 노란빛 엠블렘[공격속도]",
+          "itemRarity": "유니크"
+        }
+      ]
+    },
+    {
+      "slotId": "JACKET",
+      "slotName": "상의 아바타",
+      "itemId": "ad6bd2e34635dd78680bad237225b6ac",
+      "itemName": "레어 상의 클론 아바타",
+      "itemRarity": "레어",
+      "clone": {
+        "itemId": "b74c3a8c5cfa191bac7ce35913716d9e",
+        "itemName": "젠틀한 정장 상의"
+      },
+      "optionAbility": "장도 마스터리 스킬Lv +1",
+      "emblems": [
+        {
+          "slotNo": 1,
+          "slotColor": "플래티넘",
+          "itemId": "7f7fa05b52caedcb7e1e052da9873afb",
+          "itemName": "플래티넘 엠블렘[장도 마스터리]",
+          "itemRarity": "레전더리"
+        },
+        {
+          "slotNo": 2,
+          "slotColor": "녹색빛",
+          "itemId": "2c2f7b1edaa0173f438c97e7b5c851ca",
+          "itemName": "찬란한 녹색빛 엠블렘[물리크리티컬]",
+          "itemRarity": "유니크"
+        },
+        {
+          "slotNo": 3,
+          "slotColor": "녹색빛",
+          "itemId": "2c2f7b1edaa0173f438c97e7b5c851ca",
+          "itemName": "찬란한 녹색빛 엠블렘[물리크리티컬]",
+          "itemRarity": "유니크"
+        }
+      ]
+    },
+    {
+      "slotId": "PANTS",
+      "slotName": "하의 아바타",
+      "itemId": "c24372ebcc952474d21bf7f977533ae7",
+      "itemName": "레어 하의 클론 아바타",
+      "itemRarity": "레어",
+      "clone": {
+        "itemId": "93deef70dd73a7269f620513b6291d20",
+        "itemName": "젠틀한 정장 하의"
+      },
+      "optionAbility": "HP MAX 400 증가",
+      "emblems": [
+        {
+          "slotNo": 1,
+          "slotColor": "플래티넘",
+          "itemId": "7f7fa05b52caedcb7e1e052da9873afb",
+          "itemName": "플래티넘 엠블렘[장도 마스터리]",
+          "itemRarity": "레전더리"
+        },
+        {
+          "slotNo": 2,
+          "slotColor": "녹색빛",
+          "itemId": "b48e55e72a590c64b0066b58ba007d6a",
+          "itemName": "찬란한 녹색빛 엠블렘[물리크리티컬]",
+          "itemRarity": "유니크"
+        },
+        {
+          "slotNo": 3,
+          "slotColor": "녹색빛",
+          "itemId": "b48e55e72a590c64b0066b58ba007d6a",
+          "itemName": "찬란한 녹색빛 엠블렘[물리크리티컬]",
+          "itemRarity": "유니크"
+        }
+      ]
+    },
+    {
+      "slotId": "SHOES",
+      "slotName": "신발 아바타",
+      "itemId": "b2805465e8c38b37be145006fa2ab9b0",
+      "itemName": "레어 신발 클론 아바타",
+      "itemRarity": "레어",
+      "clone": {
+        "itemId": "9c5faf34fd484014b358fff71b6f77d9",
+        "itemName": "젠틀한 정장 구두"
+      },
+      "optionAbility": "이동 속도 6.0% 증가",
+      "emblems": [
+        {
+          "slotNo": 1,
+          "slotColor": "푸른빛",
+          "itemId": "8d96a7ecbc126cad8363ee2d6dd1a120",
+          "itemName": "찬란한 듀얼 엠블렘[공격속도 + 이동속도]",
+          "itemRarity": "유니크"
+        },
+        {
+          "slotNo": 2,
+          "slotColor": "푸른빛",
+          "itemId": "8d96a7ecbc126cad8363ee2d6dd1a120",
+          "itemName": "찬란한 듀얼 엠블렘[공격속도 + 이동속도]",
+          "itemRarity": "유니크"
+        }
+      ]
+    },
+    {
+      "slotId": "BREAST",
+      "slotName": "목가슴 아바타",
+      "itemId": "1ab5dfd403b7d4ddae969e8e07174538",
+      "itemName": "레어 목가슴 클론 아바타",
+      "itemRarity": "레어",
+      "clone": {
+        "itemId": null,
+        "itemName": null
+      },
+      "optionAbility": "공격 속도 6.0% 증가",
+      "emblems": [
+        {
+          "slotNo": 1,
+          "slotColor": "노란빛",
+          "itemId": "3de1f0a371e19a648d0cf6ec46dd895e",
+          "itemName": "찬란한 노란빛 엠블렘[공격속도]",
+          "itemRarity": "유니크"
+        },
+        {
+          "slotNo": 2,
+          "slotColor": "노란빛",
+          "itemId": "3de1f0a371e19a648d0cf6ec46dd895e",
+          "itemName": "찬란한 노란빛 엠블렘[공격속도]",
+          "itemRarity": "유니크"
+        }
+      ]
+    },
+    {
+      "slotId": "WAIST",
+      "slotName": "허리 아바타",
+      "itemId": "edd395a4ec38c914cdcb62daf1e8b15f",
+      "itemName": "레어 허리 클론 아바타",
+      "itemRarity": "레어",
+      "clone": {
+        "itemId": "85897aa986e8f95aab5a72e490f5a10a",
+        "itemName": "서핑 아라드 투명 아바타 허리"
+      },
+      "optionAbility": "회피율 5.5% 증가",
+      "emblems": [
+        {
+          "slotNo": 1,
+          "slotColor": "푸른빛",
+          "itemId": "8d96a7ecbc126cad8363ee2d6dd1a120",
+          "itemName": "찬란한 듀얼 엠블렘[공격속도 + 이동속도]",
+          "itemRarity": "유니크"
+        },
+        {
+          "slotNo": 2,
+          "slotColor": "푸른빛",
+          "itemId": "8d96a7ecbc126cad8363ee2d6dd1a120",
+          "itemName": "찬란한 듀얼 엠블렘[공격속도 + 이동속도]",
+          "itemRarity": "유니크"
+        }
+      ]
+    },
+    {
+      "slotId": "SKIN",
+      "slotName": "스킨 아바타",
+      "itemId": "435c1296b522c7b2e4eecf49f06d8dd3",
+      "itemName": "젠틀한 나비 신사의 진줏빛 피부[E타입]",
+      "itemRarity": "커먼",
+      "clone": {
+        "itemId": null,
+        "itemName": null
+      },
+      "optionAbility": "물리 방어력 1000 증가",
+      "emblems": [
+        {
+          "slotNo": 1,
+          "slotColor": "다색",
+          "itemId": "e91b2ca74aba60fd4de6dd9abd221cba",
+          "itemName": "찬란한 붉은빛 엠블렘[힘]",
+          "itemRarity": "유니크"
+        },
+        {
+          "slotNo": 2,
+          "slotColor": "다색",
+          "itemId": "e91b2ca74aba60fd4de6dd9abd221cba",
+          "itemName": "찬란한 붉은빛 엠블렘[힘]",
+          "itemRarity": "유니크"
+        }
+      ]
+    },
+    {
+      "slotId": "AURORA",
+      "slotName": "오라 아바타",
+      "itemId": "e2d3fc083f256d83ff19df610c0dfb14",
+      "itemName": "삼신기의 불꽃",
+      "itemRarity": "레어",
+      "clone": {
+        "itemId": null,
+        "itemName": null
+      },
+      "optionAbility": null,
+      "emblems": [
+        {
+          "slotNo": 1,
+          "slotColor": "다색",
+          "itemId": "544ff5354f83855d1f41e8de97f2fba1",
+          "itemName": "찬란한 붉은빛 엠블렘[힘]",
+          "itemRarity": "유니크"
+        },
+        {
+          "slotNo": 2,
+          "slotColor": "다색",
+          "itemId": "c45637c7f77a8fd0373ba55f75aca3ae",
+          "itemName": "찬란한 녹색빛 엠블렘[물리크리티컬]",
+          "itemRarity": "유니크"
+        }
+      ]
+    },
+    {
+      "slotId": "WEAPON",
+      "slotName": "무기 아바타",
+      "itemId": "fe506824efcb3b5ccb1e1310e942f678",
+      "itemName": "레어 무기 클론 아바타[60Lv]",
+      "itemRarity": "레어",
+      "clone": {
+        "itemId": null,
+        "itemName": null
+      },
+      "optionAbility": "힘 55 증가",
+      "emblems": [
+        {
+          "slotNo": 1,
+          "slotColor": "다색",
+          "itemId": "0c0dd1a8c7512c86e93fb73ff8dcc866",
+          "itemName": "찬란한 붉은빛 엠블렘[힘]",
+          "itemRarity": "유니크"
+        },
+        {
+          "slotNo": 2,
+          "slotColor": "다색",
+          "itemId": "0c0dd1a8c7512c86e93fb73ff8dcc866",
+          "itemName": "찬란한 붉은빛 엠블렘[힘]",
+          "itemRarity": "유니크"
+        }
+      ]
+    },
+    {
+      "slotId": "AURA_SKIN",
+      "slotName": "오라 스킨 아바타",
+      "itemId": "22ab85c6ae39f606f590f780207359e7",
+      "itemName": "새겨진 기억 속의 경계",
+      "itemRarity": "레어",
+      "clone": {
+        "itemId": null,
+        "itemName": null
+      },
+      "optionAbility": null,
+      "emblems": null
+    }
+  ]
+}

@@ -13,7 +13,24 @@
   "guildName": "__guild_name__",
   "skill": {
     "buff": {
-      "skillInfo": "__skill_info__",
+      "skillInfo": {
+        "skillId": "__buff_skill_info_skill_id__",
+        "name": "__buff_skill_info_name__",
+        "option": {
+          "level": "__buff_skill_info_option_level__",
+          "desc": "__buff_skill_info_option_desc__",
+          "values": [
+            "__buff_skill_info_option_values_0__",
+            "__buff_skill_info_option_values_1__",
+            "__buff_skill_info_option_values_2__",
+            "__buff_skill_info_option_values_3__",
+            "__buff_skill_info_option_values_4__",
+            "__buff_skill_info_option_values_5__",
+            "__buff_skill_info_option_values_6__",
+            "__buff_skill_info_option_values_7__"
+          ]
+        }
+      },
       "creature": [
         {
           "itemId": "__buff_creature_item_id__",

@@ -12,8 +12,8 @@ from pyneople.utils.api_utils.extract_values import _get_nested_value
 from pyneople.utils.api_utils.url_builder import build_url
 from pyneople.utils.api_utils.api_request_builder import build_api_request
 from pyneople.config.config import Settings
-
-
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+SAMPLE_RESPONSE_DIR = os.path.abspath(os.path.join(BASE_DIR, '../../api/sample_responses/'))
 def recommend_type(value):
     """
     SAMPLE CASE 의 실제 데이터를 받아서 해당 데이터에 맞는 SQL data type을 반환하는 함수
@@ -56,21 +56,15 @@ if __name__ == '__main__':
             continue
         endpoint_class = EndpointRegistry.get_class(endpoint)
         columns = endpoint_class.data_path_map.keys()
-        api_request = build_api_request(endpoint, apikey=Settings.API_KEYS[0], serverId=Settings.SAMPLE_SERVER_ID, characterId=Settings.SAMPLE_CHARACTER_ID)
-        url = build_url(api_request)
-        response = requests.get(url)
-        data = response.json()
+        with open(os.path.join(SAMPLE_RESPONSE_DIR, f'{endpoint}.json'), 'r', encoding='utf-8') as f:
+            data = json.load(f)        
         data.update({'fetched_at' : datetime.now(timezone.utc)})
+        data = endpoint_class.preprocess(data, columns)
         for column in columns:
             try:
-                value = _get_nested_value(data, endpoint_class.data_path_map[column])
+                value = data[column]
             except Exception as e:
                 print(f"column : {column}, path : {endpoint_class.data_path_map[column]}, error : {e}")
-                if column in ["magic_ston_exalted_info_buff", "magic_ston_potency_value", "magic_ston_potency_buff"
-                              "earring_exalted_info_buff", "earring_potency_value", "earring_potency_buff"]:
-                    value = 100
-                else:    
-                    value = None
             endpoint_column_dtype_dict.update({column : recommend_type(value)})
         endpoint_to_column_dtype_map[endpoint] = endpoint_column_dtype_dict
 

@@ -3,7 +3,7 @@ import os
 import json
 import requests
 from pyneople.config.config import Settings
-from pyneople.metadata.metadata_constants import SERVER_ID_LIST
+from pyneople.metadata.metadata_constants import SERVER_ID_LIST, NO_JOG_GROW_JOB_IDS
 from pyneople.utils.api_utils.api_request_builder import build_api_request
 from pyneople.utils.api_utils.url_builder import build_url
 from pyneople.utils.db_utils.psql_connection import psql_connection
@@ -40,13 +40,21 @@ data = response.json()
 data = data['rows']
 job_data = []
 for job in data:
-    job_id = job['jobId']
+    
+    # 노전직 캐릭터가 있을 수 있는 전직이면
+    if job['jobId'] in NO_JOG_GROW_JOB_IDS:
+        job_data.append({
+            'jobId' : job['jobId'],
+            'jobGrowId' : '1ea40db11ff66e70bcb0add7fae44cdb' # 노전직 job grow id 수동으로 추가
+        })
+    
     for job_grow in job['rows']:
-        
         job_data.append({
             'jobId' : job['jobId'],
             'jobGrowId' : job_grow['jobGrowId']
         })
+
+
 
 metadata['params_for_seed_character_fame'] = [
     {**item, 'serverId': server_id}

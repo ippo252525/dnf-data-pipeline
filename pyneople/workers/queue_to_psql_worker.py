@@ -107,7 +107,7 @@ class QueueToPSQLWorker:
                     break
             finally:        
                 if data is not None:
-                    self.num_unfinished_task += 1
+                    self.num_unfinished_task += 1        
             data = self.preprocess(data, TABLE_COLUMNS_MAP[self.table_name])
             if isinstance(data, list):
                 self.batch.extend(data)

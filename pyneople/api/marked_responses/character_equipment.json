@@ -89,12 +89,16 @@
       "upgradeInfo": {
         "itemId": "__jacket_upgrade_info_item_id__",
         "itemName": "__jacket_upgrade_info_item_name__",
-        "itemRarity": "__jacket_upgrade_info_item_rarity__"
+        "itemRarity": "__jacket_upgrade_info_item_rarity__",
+        "setItemId": "__jacket_upgrade_info_set_item_id__",
+        "setItemName": "__jacket_upgrade_info_set_item_name__",
+        "setPoint": "__jacket_upgrade_info_set_point__"
       },
       "tune": [
         {
           "level": "__jacket_tune_level__",
-          "setPoint": "__jacket_tune_set_point__"
+          "setPoint": "__jacket_tune_set_point__",
+          "upgrade": "__jacket_tune_upgrade__"
         }
       ]
     },
@@ -128,7 +132,8 @@
       "tune": [
         {
           "level": "__shoulder_tune_level__",
-          "setPoint": "__shoulder_tune_set_point__"
+          "setPoint": "__shoulder_tune_set_point__",
+          "upgrade": "__shoulder_tune_upgrade__"
         }
       ]
     },
@@ -162,7 +167,8 @@
       "tune": [
         {
           "level": "__pants_tune_level__",
-          "setPoint": "__pants_tune_set_point__"
+          "setPoint": "__pants_tune_set_point__",
+          "upgrade": "__pants_tune_upgrade__"
         }
       ]
     },
@@ -196,7 +202,8 @@
       "tune": [
         {
           "level": "__shoes_tune_level__",
-          "setPoint": "__shoes_tune_set_point__"
+          "setPoint": "__shoes_tune_set_point__",
+          "upgrade": "__shoes_tune_upgrade__"
         }
       ]
     },
@@ -222,12 +229,16 @@
       "upgradeInfo": {
         "itemId": "__waist_upgrade_info_item_id__",
         "itemName": "__waist_upgrade_info_item_name__",
-        "itemRarity": "__waist_upgrade_info_item_rarity__"
+        "itemRarity": "__waist_upgrade_info_item_rarity__",
+        "setItemId": "__waist_upgrade_info_set_item_id__",
+        "setItemName": "__waist_upgrade_info_set_item_name__",
+        "setPoint": "__waist_upgrade_info_set_point__"
       },
       "tune": [
         {
           "level": "__waist_tune_level__",
-          "setPoint": "__waist_tune_set_point__"
+          "setPoint": "__waist_tune_set_point__",
+          "upgrade": "__waist_tune_upgrade__"
         }
       ]
     },
@@ -253,12 +264,16 @@
       "upgradeInfo": {
         "itemId": "__amulet_upgrade_info_item_id__",
         "itemName": "__amulet_upgrade_info_item_name__",
-        "itemRarity": "__amulet_upgrade_info_item_rarity__"
+        "itemRarity": "__amulet_upgrade_info_item_rarity__",
+        "setItemId": "__amulet_upgrade_info_set_item_id__",
+        "setItemName": "__amulet_upgrade_info_set_item_name__",
+        "setPoint": "__amulet_upgrade_info_set_point__"
       },
       "tune": [
         {
           "level": "__amulet_tune_level__",
-          "setPoint": "__amulet_tune_set_point__"
+          "setPoint": "__amulet_tune_set_point__",
+          "upgrade": "__amulet_tune_upgrade__"
         }
       ]
     },
@@ -284,12 +299,16 @@
       "upgradeInfo": {
         "itemId": "__wrist_upgrade_info_item_id__",
         "itemName": "__wrist_upgrade_info_item_name__",
-        "itemRarity": "__wrist_upgrade_info_item_rarity__"
+        "itemRarity": "__wrist_upgrade_info_item_rarity__",
+        "setItemId": "__wrist_upgrade_info_set_item_id__",
+        "setItemName": "__wrist_upgrade_info_set_item_name__",
+        "setPoint": "__wrist_upgrade_info_set_point__"
       },
       "tune": [
         {
           "level": "__wrist_tune_level__",
-          "setPoint": "__wrist_tune_set_point__"
+          "setPoint": "__wrist_tune_set_point__",
+          "upgrade": "__wrist_tune_upgrade__"
         }
       ]
     },
@@ -315,7 +334,10 @@
       "upgradeInfo": {
         "itemId": "__ring_upgrade_info_item_id__",
         "itemName": "__ring_upgrade_info_item_name__",
-        "itemRarity": "__ring_upgrade_info_item_rarity__"
+        "itemRarity": "__ring_upgrade_info_item_rarity__",
+        "setItemId": "__ring_upgrade_info_set_item_id__",
+        "setItemName": "__ring_upgrade_info_set_item_name__",
+        "setPoint": "__ring_upgrade_info_set_point__"
       },
       "tune": [
         {
@@ -347,12 +369,16 @@
       "upgradeInfo": {
         "itemId": "__support_upgrade_info_item_id__",
         "itemName": "__support_upgrade_info_item_name__",
-        "itemRarity": "__support_upgrade_info_item_rarity__"
+        "itemRarity": "__support_upgrade_info_item_rarity__",
+        "setItemId": "__support_upgrade_info_set_item_id__",
+        "setItemName": "__support_upgrade_info_set_item_name__",
+        "setPoint": "__support_upgrade_info_set_point__"
       },
       "tune": [
         {
           "level": "__support_tune_level__",
-          "setPoint": "__support_tune_set_point__"
+          "setPoint": "__support_tune_set_point__",
+          "upgrade": "__support_tune_upgrade__"
         }
       ]
     },
@@ -386,7 +412,8 @@
       "tune": [
         {
           "level": "__magic_ston_tune_level__",
-          "setPoint": "__magic_ston_tune_set_point__"
+          "setPoint": "__magic_ston_tune_set_point__",
+          "upgrade": "__magic_ston_tune_upgrade__"
         }
       ],
       "exaltedInfo": {
@@ -422,7 +449,10 @@
       "upgradeInfo": {
         "itemId": "__earring_upgrade_info_item_id__",
         "itemName": "__earring_upgrade_info_item_name__",
-        "itemRarity": "__earring_upgrade_info_item_rarity__"
+        "itemRarity": "__earring_upgrade_info_item_rarity__",
+        "setItemId": "__earring_upgrade_info_set_item_id__",
+        "setItemName": "__earring_upgrade_info_set_item_name__",
+        "setPoint": "__earring_upgrade_info_set_point__"
       },
       "tune": [
         {

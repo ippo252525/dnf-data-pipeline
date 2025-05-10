@@ -18,7 +18,7 @@ if __name__ == "__main__":
     
     # 미리 사용 할 컬럼을 작성했다면 해당 정보를 받아온다다
     try:
-        with open(os.path.join(BASE_DIR, f'../../db/schema/staging_table_to_columns.josn'), 'r', encoding='utf-8') as f:
+        with open(os.path.join(BASE_DIR, f'../../db/schema/staging_table_to_columns.json'), 'r', encoding='utf-8') as f:
             staging_table_to_columns = json.load(f)
     except:
         staging_table_to_columns = None
@@ -32,7 +32,7 @@ if __name__ == "__main__":
             staging_table_name = endpoint_class.staging_table_name
             sql_path = os.path.join(BASE_DIR, f'../../db/schema/staging_tables/{staging_table_name}.sql')
             
-            if staging_table_to_columns:
+            if staging_table_to_columns.get(staging_table_name):
                 columns = staging_table_to_columns[staging_table_name]    
             else:
                 columns = endpoint_class.data_path_map.keys()
