@@ -9,6 +9,13 @@ class NotFoundCharacterError(Exception):
     def __init__(self, *args: object) -> None:
         super().__init__(*args)
 
+class RetryableError(Exception):
+    """
+    재시도 가능한 Error 핸들링을 위한 Class
+    """
+    def __init__(self, *args: object) -> None:
+        super().__init__(*args)    
+
 def to_snake_case(string : str) -> str:
     """
     모든 문자가 대문자면 소문자로 변환, 나머지는 스네이크 케이스로 반환하는 함수

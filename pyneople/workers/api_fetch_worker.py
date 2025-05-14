@@ -3,10 +3,22 @@ import aiohttp
 from datetime import datetime, timezone
 from motor.motor_asyncio import AsyncIOMotorCollection
 from pyneople.utils.api_utils.url_builder import build_url
+from pyneople.utils.monitoring import send_slack_alert
 from pyneople.api.registry.endpoint_registry import EndpointRegistry
 from pyneople.config.config import Settings
-from pyneople.utils.common import NotFoundCharacterError
+from pyneople.utils.common import NotFoundCharacterError, RetryableError
 import logging
+
+# 재시도 할 에러들들
+RETRYABLE_ERRORS = (
+    aiohttp.ClientConnectorError,
+    aiohttp.ServerDisconnectedError,
+    aiohttp.ClientOSError,
+    aiohttp.ClientPayloadError,
+    asyncio.TimeoutError,
+    RetryableError
+)
+
 
 logger = logging.getLogger(__name__)
 
@@ -16,6 +28,7 @@ class APIFetchWorker:
                  data_queue: asyncio.Queue, 
                  session : aiohttp.ClientSession, 
                  shutdown_event : asyncio.Event, 
+                 error_shutdown_event : asyncio.Event, 
                  error_collection : AsyncIOMotorCollection,
                  max_retries : int = Settings.DEFAULT_API_FETCH_WORKER_MAX_RETRIES,
                  timeout : float = Settings.DEFAULT_API_FETCH_WORKER_TIMEOUT,
@@ -24,6 +37,7 @@ class APIFetchWorker:
         self.data_queue = data_queue
         self.session = session
         self.shutdown_event = shutdown_event
+        self.error_shutdown_event = error_shutdown_event
         self.error_collection = error_collection
         self.max_retries = max_retries
         self.timeout = timeout
@@ -50,10 +64,20 @@ class APIFetchWorker:
             except(asyncio.TimeoutError, NotFoundCharacterError):
                 pass  
             
+            except asyncio.CancelledError:
+                raise            
+            
             except Exception as e:
                 logger.error(f"API 요청 중 오류 발생: {e}")
-                self.shutdown_event.set()
+                message = f'API Fetch Worker 에러 발생 : {e}'
+                await send_slack_alert(self.session, message)
+                self.error_shutdown_event.set()
                 break
+            
+            except KeyboardInterrupt:
+                logger.warning(f"{self.name} : KeyboardInterrupt 발생 error shutdwon event set")
+                self.error_shutdown_event.set()
+                break             
             
             finally:
                 if api_request is not None:
@@ -71,37 +95,51 @@ class APIFetchWorker:
             
     async def fetch_with_retries(self, api_request: dict):
         url = build_url(api_request)
-        attempt = 0
-        
-        while attempt <= self.max_retries:
-            Settings.request_count += 1
+        return await self._retry_with_backoff(self._fetch, url = url, api_request = api_request)
+
+    async def _fetch(self, url : str, api_request: dict):
+        Settings.request_count += 1
+        async with self.session.get(url) as response:
             try:
-                async with self.session.get(url) as response:
-                    if response.status == 200:
-                        return await response.json()
-                    else:
-                        try:
-                            error_data = await response.json()
-                            await self.save_error_log(api_request, error_data, datetime.now(timezone.utc))
-                            error_code = error_data.get("error", {}).get("code")
-                        except Exception:
-                            error_code = None
-                        
-                        if error_code == "DNF001":
-                            logger.warning(f"해당 캐릭터 없음")
-                            raise NotFoundCharacterError()
-                        else:
-                            response.raise_for_status()
-            except asyncio.TimeoutError as e:
+                data = await response.json()
+            except:
+                logger.error('API 응답이 json으로 오지 않음')
+                raise
+
+            if response.status == 200:
+                return data
+            else:
+                error_code = data.get("error", {}).get("code")
+                await self.save_error_log(api_request, data, datetime.now(timezone.utc))
+                
+                if error_code == "DNF001":
+                    raise NotFoundCharacterError()
+                
+                elif error_code == "API007":
+                    logger.warning("클라이언트 소켓 통신 오류")
+                    raise RetryableError
+                
+                elif error_code == "API999":
+                    logger.warning("시스템 오류")
+                    raise RetryableError
+                
+                else:
+                    response.raise_for_status()
+
+
+    async def _retry_with_backoff(self, func : callable, **kwargs):
+        attempt = 0
+        while attempt <= self.max_retries:
+            try:
+                return await func(**kwargs)
+            except RETRYABLE_ERRORS as e:
                 attempt += 1
                 if attempt > self.max_retries:
-                    logger.warning(f"요청 실패, 재시도 {self.max_retries}회 초과")
-                    await self.save_error_log(api_request, e.__class__.__name__, datetime.now(timezone.utc))
-                    raise e
-                else:
-                    logger.warning(f"요청 실패: {url} (재시도 {attempt}/{self.max_retries}) - {e}")
-                    backoff_time = min(2 ** attempt, 30)
-                    await asyncio.sleep(backoff_time)
+                    logger.error(f"[{self.name}] 재시도 초과: {e}")
+                    raise
+                backoff = min(2 ** attempt, 30)
+                logger.warning(f"[{self.name}] 재시도 {attempt}/{self.max_retries} - 예외: {e} - {backoff}초 후 재시도")
+                await asyncio.sleep(backoff)
 
     async def flush_queue(self):
         while not self.api_request_queue.empty():
@@ -111,10 +149,44 @@ class APIFetchWorker:
             except asyncio.QueueEmpty:
                 break           
 
-    async def save_error_log(self, api_request, error_data, fetched_at):
+    async def save_error_log(self, api_request : dict, error_data, fetched_at : datetime):
         error_doc = {
             'api_request' : api_request,
             'error_data' : error_data,
             'fetched_at' : fetched_at
         }
         await self.error_collection.insert_one(error_doc)        
+
+
+        # attempt = 0
+        
+        # while attempt <= self.max_retries:
+        #     Settings.request_count += 1
+        #     try:
+        #         async with self.session.get(url) as response:
+        #             if response.status == 200:
+        #                 return await response.json()
+        #             else:
+        #                 try:
+        #                     error_data = await response.json()
+        #                     await self.save_error_log(api_request, error_data, datetime.now(timezone.utc))
+        #                     error_code = error_data.get("error", {}).get("code")
+        #                 except Exception:
+        #                     await response.release()
+        #                     error_code = None
+        #                 if error_code == "DNF001":
+        #                     logger.warning(f"해당 캐릭터 없음")
+        #                     raise NotFoundCharacterError()
+        #                 else:
+        #                     response.raise_for_status()
+        #     except asyncio.TimeoutError as e:
+        #         attempt += 1
+        #         if attempt > self.max_retries:
+        #             logger.warning(f"요청 실패, 재시도 {self.max_retries}회 초과")
+        #             error_data = {'error' : {'code' : 'TIMEOUT', 'message' : e.__class__.__name__}}
+        #             await self.save_error_log(api_request, e.__class__.__name__, datetime.now(timezone.utc))
+        #             raise e
+        #         else:
+        #             logger.warning(f"요청 실패: {url} (재시도 {attempt}/{self.max_retries}) - {e}")
+        #             backoff_time = min(2 ** attempt, 30)
+        #             await asyncio.sleep(backoff_time)        

@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS "staging_character_flags" (
+CREATE TABLE IF NOT EXISTS "staging_character_flag" (
   "server_id" TEXT,
   "character_id" CHAR(32),
   "item_rarity" TEXT,

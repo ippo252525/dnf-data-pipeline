@@ -42,7 +42,7 @@ class ShutdownController:
         for task in self.worker_tasks:
             if not task.done():
                 task.cancel()
-                logger.info(f"[{self.name}] 취소된 task: {task.get_name()}")
+                logger.warning(f"[{self.name}] 취소된 task: {task.get_name()}")
 
         # 큐 정리
         for idx, queue in enumerate(self.queues):
@@ -52,7 +52,7 @@ class ShutdownController:
                     queue.task_done()
                 except asyncio.QueueEmpty:
                     break
-            logger.info(f"[{self.name}] 큐 {idx} 비우기 완료 — 남은 항목 수: {queue.qsize()}")
+            logger.warning(f"[{self.name}] 큐 {idx} 비우기 완료 — 남은 항목 수: {queue.qsize()}")
         logger.warning(f"[{self.name}] 모든 워커 종료 및 큐 정리 완료")
 
         # 모든 태스크 완료 대기

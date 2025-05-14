@@ -45,7 +45,8 @@ base_avatar_data = [
     'emblems_1_item_name']
 base_avatar_columns = [f"{i}_{j}" for i, j in product(base_avatars, base_avatar_data)]
 
-staging_table_to_columns['staging_characters'] = [
+endpoint_class = EndpointRegistry.get_class('character_info')
+staging_table_to_columns[f'{endpoint_class.staging_table_name}'] = [
     'server_id',
     'character_id',
     'character_name',
@@ -59,7 +60,8 @@ staging_table_to_columns['staging_characters'] = [
     'fetched_at'
     ]
 
-staging_table_to_columns['staging_character_status'] = [
+endpoint_class = EndpointRegistry.get_class('character_status')
+staging_table_to_columns[f'{endpoint_class.staging_table_name}'] = [
     'server_id',
     'character_id',
     'buff_adventure_level',
@@ -73,7 +75,8 @@ staging_table_to_columns['staging_character_status'] = [
     'fetched_at'
     ]
 
-staging_table_to_columns['staging_character_equipments'] = [
+endpoint_class = EndpointRegistry.get_class('character_equipment')
+staging_table_to_columns[f'{endpoint_class.staging_table_name}'] = [
     'server_id',
     'character_id',
     'weapon_item_id',
@@ -97,7 +100,8 @@ staging_table_to_columns['staging_character_equipments'] = [
        'fetched_at'
     ]
 
-staging_table_to_columns['staging_character_avatars'] = [
+endpoint_class = EndpointRegistry.get_class('character_avatar')
+staging_table_to_columns[f'{endpoint_class.staging_table_name}'] = [
     'server_id',
     'character_id'
     ] + base_avatar_columns + [
@@ -107,7 +111,8 @@ staging_table_to_columns['staging_character_avatars'] = [
         'fetched_at'
     ]
 
-staging_table_to_columns['staging_character_flags'] = [
+endpoint_class = EndpointRegistry.get_class('character_flag')
+staging_table_to_columns[f'{endpoint_class.staging_table_name}'] = [
     'server_id', 
     'character_id', 
     'item_rarity', 
@@ -119,7 +124,8 @@ staging_table_to_columns['staging_character_flags'] = [
     'fetched_at'
     ]
 
-staging_table_to_columns['staging_character_creatures'] = [
+endpoint_class = EndpointRegistry.get_class('character_creature')
+staging_table_to_columns[f'{endpoint_class.staging_table_name}'] = [
     'server_id',
     'character_id',
     'item_name',
@@ -136,7 +142,8 @@ staging_table_to_columns['staging_character_creatures'] = [
     'fetched_at'
     ]
 
-staging_table_to_columns['staging_character_buff_equipments'] = [
+endpoint_class = EndpointRegistry.get_class('character_buff_equipment')
+staging_table_to_columns[f'{endpoint_class.staging_table_name}'] = [
     'server_id',
     'character_id',
     'buff_skill_info_name',

@@ -1,17 +1,25 @@
 from motor.motor_asyncio import AsyncIOMotorCollection
 from pyneople.config.config import Settings
 from pyneople.utils.api_utils.extract_character_info_data import extract_character_info_data
-            
+import asyncio            
+
+import logging
+
+logger = logging.getLogger(__name__)  
+
 class MongoRouter:
 
     def __init__(self, 
         mongo_collection: AsyncIOMotorCollection, 
         queue_map: dict, 
         character_info_endpoints : list,
-        batch_size: int = Settings.DEFAULT_MONGO_ROUTER_BATCH_SIZE):
+        error_shutdown_event : asyncio.Event,
+        batch_size: int = Settings.DEFAULT_MONGO_ROUTER_BATCH_SIZE
+        ):
         self.character_info_endpoints = character_info_endpoints
         self.mongo_collection = mongo_collection
         self.queue_map = queue_map
+        self.error_shutdown_event = error_shutdown_event
         self.batch_size = batch_size
     
     async def route(self, id_filter):
@@ -20,6 +28,8 @@ class MongoRouter:
         """
         cursor = self.mongo_collection.find(id_filter).batch_size(self.batch_size)
         async for document in cursor:
+            if self.error_shutdown_event.is_set():
+                break
             endpoint = document.get('endpoint')
             
             target_queue = self.queue_map.get(endpoint)
