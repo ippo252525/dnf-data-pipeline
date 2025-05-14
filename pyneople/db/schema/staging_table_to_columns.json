@@ -1,5 +1,5 @@
 {
-  "staging_characters": [
+  "staging_character_info": [
     "server_id",
     "character_id",
     "character_name",
@@ -25,7 +25,7 @@
     "status_final_cooldown_reduction_rate_value",
     "fetched_at"
   ],
-  "staging_character_equipments": [
+  "staging_character_equipment": [
     "server_id",
     "character_id",
     "weapon_item_id",
@@ -213,7 +213,7 @@
     "set_item_info",
     "fetched_at"
   ],
-  "staging_character_avatars": [
+  "staging_character_avatar": [
     "server_id",
     "character_id",
     "headgear_item_name",
@@ -276,7 +276,7 @@
     "aura_skin_item_name",
     "fetched_at"
   ],
-  "staging_character_flags": [
+  "staging_character_flag": [
     "server_id",
     "character_id",
     "item_rarity",
@@ -287,7 +287,7 @@
     "gems_3_item_rarity",
     "fetched_at"
   ],
-  "staging_character_creatures": [
+  "staging_character_creature": [
     "server_id",
     "character_id",
     "item_name",
@@ -303,7 +303,7 @@
     "artifact_green_item_rarity",
     "fetched_at"
   ],
-  "staging_character_buff_equipments": [
+  "staging_character_buff_equipment": [
     "server_id",
     "character_id",
     "buff_skill_info_name",

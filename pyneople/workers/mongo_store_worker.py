@@ -21,11 +21,19 @@ class MongoStoreWorker:
         timeout (float): 큐에서 데이터를 기다리는 최대 시간 (초)
         name (str): 워커 이름
     """    
-    def __init__(self, data_queue: asyncio.Queue, mongo_collection: AsyncIOMotorCollection, shutdown_event : asyncio.Event, batch_size: int = Settings.DEFAULT_MONGO_STORE_BATCH_SIZE, timeout : float = Settings.DEFAULT_MONGO_STORE_WORKER_TIMEOUT, name : str = 'MongoStoreWorker'):
+    def __init__(self, 
+                 data_queue: asyncio.Queue, 
+                 mongo_collection: AsyncIOMotorCollection, 
+                 shutdown_event : asyncio.Event, 
+                 error_shutdown_event : asyncio.Event, 
+                 batch_size: int = Settings.DEFAULT_MONGO_STORE_BATCH_SIZE, 
+                 timeout : float = Settings.DEFAULT_MONGO_STORE_WORKER_TIMEOUT, 
+                 name : str = 'MongoStoreWorker'):
         self.queue = data_queue
         self.mongo_collection = mongo_collection
         self.batch_size = batch_size
         self.shutdown_event = shutdown_event
+        self.error_shutdown_event = error_shutdown_event
         self.timeout = timeout
         self.name = name or self.__class__.__name__
         self.batch = []
@@ -53,8 +61,12 @@ class MongoStoreWorker:
                 raise
             except Exception as e:
                 logger.error(f"{self.name} : 오류 발생 - {e}")
-                self.shutdown_event.set()
+                self.error_shutdown_event.set()
                 break
+            except KeyboardInterrupt:
+                logger.warning(f"{self.name} : KeyboardInterrupt 발생 error shutdwon event set")
+                self.error_shutdown_event.set()
+                break            
             finally:
                 for _ in range(self.num_unfinished_task):
                     self.queue.task_done()
@@ -74,7 +86,7 @@ class MongoStoreWorker:
                 try:
                     data = await asyncio.wait_for(self.queue.get(), timeout=self.timeout)
                 except asyncio.TimeoutError:
-                    logger.warning(f"{self.name} : 큐에서 데이터를 가져오지 못함 (Timeout)")
+                    logger.info(f"{self.name} : 큐에서 데이터를 가져오지 못함 (Timeout)")
                     break                
             finally:
                 if data is not None:

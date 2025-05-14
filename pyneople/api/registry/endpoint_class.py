@@ -58,7 +58,7 @@ class BaseEndpoint(ABC):
 # 캐릭터 기본 정보 조회
 @register_endpoint('character_info')
 class CharacterInfo(BaseEndpoint):
-    staging_table_name = 'staging_characters'
+    staging_table_name = 'staging_character_info'
     has_character_info_data = False
     data_path_map = CHARACTER_INFO_DATA_PATH_MAP
 
@@ -69,7 +69,7 @@ class CharacterInfo(BaseEndpoint):
 # 캐릭터 타임라인 정보 조회    
 @register_endpoint('character_timeline')
 class CharacterTimeline(BaseEndpoint):
-    staging_table_name = 'staging_character_timelines'
+    staging_table_name = 'staging_character_timeline'
     seeder = CharacterTimelineSeeder
     data_path_map = CHARACTER_TIMELINE_DATA_PATH_MAP
 
@@ -94,7 +94,7 @@ class CharacterStatus(BaseEndpoint):
 # 캐릭터 장착 장비 조회
 @register_endpoint('character_equipment')
 class CharacterEquipment(BaseEndpoint):
-    staging_table_name = 'staging_character_equipments'
+    staging_table_name = 'staging_character_equipment'
     data_path_map = CHARACTER_EQUIPMENT_DATA_PATH_MAP
 
     @staticmethod
@@ -104,7 +104,7 @@ class CharacterEquipment(BaseEndpoint):
 # 캐릭터 장착 아바타 조회
 @register_endpoint('character_avatar')
 class CharacterAvatar(BaseEndpoint):
-    staging_table_name = 'staging_character_avatars'
+    staging_table_name = 'staging_character_avatar'
     data_path_map = CHARACTER_AVATAR_DATA_PATH_MAP
     
     @staticmethod
@@ -114,7 +114,7 @@ class CharacterAvatar(BaseEndpoint):
 # 캐릭터 장착 크리쳐 조회
 @register_endpoint('character_creature')
 class CharacterCreature(BaseEndpoint):
-    staging_table_name = 'staging_character_creatures'
+    staging_table_name = 'staging_character_creature'
     data_path_map = CHARACTER_CREATURE_DATA_PATH_MAP
 
     @staticmethod
@@ -124,7 +124,7 @@ class CharacterCreature(BaseEndpoint):
 # 캐릭터 장착 휘장 조회
 @register_endpoint('character_flag')
 class CharacterFlag(BaseEndpoint):
-    staging_table_name = 'staging_character_flags'
+    staging_table_name = 'staging_character_flag'
     data_path_map = CHARACTER_FLAG_DATA_PATH_MAP
 
     @staticmethod
@@ -134,37 +134,37 @@ class CharacterFlag(BaseEndpoint):
 # 캐릭터 버프 스킬 강화 장착 장비 조회
 @register_endpoint('character_buff_equipment')
 class CharacterBuffEquipment(BaseEndpoint):
-    staging_table_name = 'staging_character_buff_equipments'
+    staging_table_name = 'staging_character_buff_equipment'
     data_path_map = CHARACTER_BUFF_EQUIPMENT_DATA_PATH_MAP
 
     @staticmethod
     def preprocess(data, columns):
         return preprocess_character_buff_equipment(data, columns)
 
-# 캐릭터 버프 스킬 강화 장착 아바타 조회
-@register_endpoint('character_buff_avatar')
-class CharacterBuffAvatar(BaseEndpoint):
-    staging_table_name = 'staging_character_buff_avatars'
-    data_path_map = CHARACTER_BUFF_AVATAR_DATA_PATH_MAP
+# # 캐릭터 버프 스킬 강화 장착 아바타 조회
+# @register_endpoint('character_buff_avatar')
+# class CharacterBuffAvatar(BaseEndpoint):
+#     staging_table_name = 'staging_character_buff_avatar'
+#     data_path_map = CHARACTER_BUFF_AVATAR_DATA_PATH_MAP
 
-    @staticmethod
-    def preprocess(data, columns):
-        return preprocess_character_buff_avatar(data, columns)
+#     @staticmethod
+#     def preprocess(data, columns):
+#         return preprocess_character_buff_avatar(data, columns)
 
-# 캐릭터 버프 스킬 강화 장착 크리쳐 조회
-@register_endpoint('character_buff_creature')
-class CharacterBuffCreature(BaseEndpoint):
-    staging_table_name = 'staging_character_buff_creatures'
-    data_path_map = CHARACTER_BUFF_CREATURE_DATA_PATH_MAP
+# # 캐릭터 버프 스킬 강화 장착 크리쳐 조회
+# @register_endpoint('character_buff_creature')
+# class CharacterBuffCreature(BaseEndpoint):
+#     staging_table_name = 'staging_character_buff_creature'
+#     data_path_map = CHARACTER_BUFF_CREATURE_DATA_PATH_MAP
 
-    @staticmethod
-    def preprocess(data, columns):
-        return preprocess_character_buff_creature(data, columns)
+#     @staticmethod
+#     def preprocess(data, columns):
+#         return preprocess_character_buff_creature(data, columns)
 
 # 캐릭터 명성 검색
 @register_endpoint('character_fame')
 class CharacterFame(BaseEndpoint):
-    staging_table_name = 'staging_characters'
+    staging_table_name = 'staging_character_fame'
     accepts_sql = False
     seeder = CharacterFameSeeder
     has_next = True

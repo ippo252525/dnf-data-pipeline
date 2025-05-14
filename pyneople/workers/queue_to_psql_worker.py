@@ -35,6 +35,7 @@ class QueueToPSQLWorker:
                  preprocess : callable, 
                  batch_size : int,
                  shutdown_event : asyncio.Event, 
+                 error_shutdown_event : asyncio.Event,
                  error_collection : AsyncIOMotorCollection,
                  timeout : float = Settings.DEFAULT_QUEUE_TO_PSQL_WORKER_TIMEOUT,
                  name : Optional[str]  = None):
@@ -45,6 +46,7 @@ class QueueToPSQLWorker:
         self.preprocess = preprocess
         self.batch_size = batch_size
         self.shutdown_event = shutdown_event
+        self.error_shutdown_event = error_shutdown_event
         self.timeout = timeout  
         self.error_collection = error_collection
         self.name = name or self.__class__.__name__
@@ -74,7 +76,7 @@ class QueueToPSQLWorker:
             except Exception as e:
                 # logger.error(f"{self.name} : 오류 발생")
                 logger.error(f"{self.name} : 오류 발생\n{e}")
-                self.shutdown_event.set()
+                self.error_shutdown_event.set()
                 break
             finally:
                 for _ in range(self.num_unfinished_task):
@@ -103,7 +105,7 @@ class QueueToPSQLWorker:
                 try:
                     data = await asyncio.wait_for(self.queue.get(), timeout=self.timeout)
                 except asyncio.TimeoutError:
-                    logger.warning(f"{self.name} : 큐에서 데이터를 가져오지 못함 (Timeout)")
+                    logger.info(f"{self.name} : 큐에서 데이터를 가져오지 못함 (Timeout)")
                     break
             finally:        
                 if data is not None:

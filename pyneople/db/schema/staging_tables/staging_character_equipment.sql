@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS "staging_character_equipments" (
+CREATE TABLE IF NOT EXISTS "staging_character_equipment" (
   "server_id" TEXT,
   "character_id" CHAR(32),
   "weapon_item_id" CHAR(32),

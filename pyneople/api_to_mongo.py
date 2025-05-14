@@ -5,7 +5,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 
 from pyneople.config.config import Settings
 from pyneople.workers.api_fetch_worker import APIFetchWorker
-from pyneople.utils.monitoring import count_requests_per_second
+from pyneople.utils.monitoring import count_requests_per_second, monitoring_error_collection
 from pyneople.workers.mongo_store_worker import MongoStoreWorker
 from pyneople.workers.shutdwon_controller import ShutdownController
 
@@ -18,7 +18,8 @@ import logging
 logger = logging.getLogger(__name__)
 
 async def _api_to_mongo(endpoints : list[str],
-                       
+               mongo_collection_name : str = Settings.MONGO_COLLECTION_NAME,
+               error_collection_name : str =  Settings.MONGO_ERROR_COLLECTION_NAME,
                check_rate_limit : bool = None,
                num_api_fetch_workers : int = Settings.DEFAULT_NUM_API_FETCH_WORKERS, 
                num_mongo_store_workers : int = Settings.DEFAULT_NUM_MONGO_STORE_WORKERS,
@@ -37,6 +38,8 @@ async def _api_to_mongo(endpoints : list[str],
 
     Args:
         endpoints (list[str]): 사용할 API endpoint 리스트
+        mongo_collection_name (str) : 데이터를 저장 할 MongoDB collection name
+        error_collection_name (str) : error를 저장 할 MongoDB collection name
         check_rate_limit (bool, optional): 초당 요청 수를 모니터링할지 여부
         num_api_fetch_workers (int): 실행할 API fetch worker 수
         num_mongo_store_workers (int): 실행할 MongoDB store worker 수
@@ -52,11 +55,13 @@ async def _api_to_mongo(endpoints : list[str],
     # Shutdown event 설정
     api_shutdown_event = asyncio.Event()
     mongo_shutdown_event = asyncio.Event()
+    error_shutdown_event = asyncio.Event()
 
     # DB 연결
     mongo_client = AsyncIOMotorClient(Settings.MONGO_URL)
-    mongo_collection = mongo_client[Settings.MONGO_DB_NAME][Settings.MONGO_COLLECTION_NAME]
-    error_collection = mongo_client[Settings.MONGO_DB_NAME][Settings.MONGO_ERROR_COLLECTION_NAME]        
+    mongo_collection = mongo_client[Settings.MONGO_DB_NAME][mongo_collection_name]
+    error_collection = mongo_client[Settings.MONGO_DB_NAME][error_collection_name]
+
     async with asyncpg.create_pool(
         user=Settings.POSTGRES_USER,
         password=Settings.POSTGRES_PASSWORD,
@@ -71,14 +76,15 @@ async def _api_to_mongo(endpoints : list[str],
         api_request_queue = asyncio.Queue(maxsize=api_request_queue_size)
         data_queue = asyncio.Queue()
         
-        async with aiohttp.ClientSession() as session:
+        timeout = aiohttp.ClientTimeout(total=10)
+        async with aiohttp.ClientSession(timeout=timeout) as session:
             
             # 여러 개의 워커 생성
             if check_rate_limit:
                 asyncio.create_task(count_requests_per_second(api_shutdown_event))
-            seeders = [EndpointRegistry.get_class(endpoint).seeder(endpoint, api_request_queue, psql_pool, api_shutdown_event, seeder_batch_size, name = f'{endpoint}_Seeder') for endpoint in endpoints]
-            api_fetch_workers = [APIFetchWorker(api_request_queue, data_queue, session, api_shutdown_event, error_collection, name = f'APIFetchWorker_{i}') for i in range(num_api_fetch_workers)]
-            mongo_store_workers = [MongoStoreWorker(data_queue, mongo_collection, mongo_shutdown_event, mongo_store_batch_size, name = f'MongoStoreWorker_{i}') for i in range(num_mongo_store_workers)]
+            seeders = [EndpointRegistry.get_class(endpoint).seeder(endpoint, api_request_queue, psql_pool, error_shutdown_event, seeder_batch_size, name = f'{endpoint}_Seeder') for endpoint in endpoints]
+            api_fetch_workers = [APIFetchWorker(api_request_queue, data_queue, session, api_shutdown_event, error_shutdown_event ,error_collection, name = f'APIFetchWorker_{i}') for i in range(num_api_fetch_workers)]
+            mongo_store_workers = [MongoStoreWorker(data_queue, mongo_collection, mongo_shutdown_event, error_shutdown_event, mongo_store_batch_size, name = f'MongoStoreWorker_{i}') for i in range(num_mongo_store_workers)]
 
             
             # 워커 태스크 실행
@@ -89,16 +95,21 @@ async def _api_to_mongo(endpoints : list[str],
             mongo_store_worker_tasks = [asyncio.create_task(worker.run()) for worker in mongo_store_workers]
             logger.info(f"mongo_store_worker {len(mongo_store_workers)}개 실행 시작")
             
-            shutdown_controller_tasks = [
-                asyncio.create_task(ShutdownController([api_request_queue], api_shutdown_event, seeders_tasks + api_fetch_worker_tasks, 'APIShutdwonController').run()),
-                asyncio.create_task(ShutdownController([data_queue], mongo_shutdown_event, api_fetch_worker_tasks + mongo_store_worker_tasks, 'MongoShutdwonController').run())
-            ]
+            # shutdown_controller_tasks = [
+            #     asyncio.create_task(ShutdownController([api_request_queue], error_shutdown_event, seeders_tasks + api_fetch_worker_tasks, 'APIShutdwonController').run()),
+            #     asyncio.create_task(ShutdownController([data_queue], error_shutdown_event, api_fetch_worker_tasks + mongo_store_worker_tasks, 'MongoShutdwonController').run())
+            # ]
+            shutdown_controller_task = asyncio.create_task(
+                ShutdownController(
+                    [api_request_queue, data_queue], 
+                    error_shutdown_event, 
+                    seeders_tasks + api_fetch_worker_tasks + mongo_store_worker_tasks, 
+                    'MongoShutdwonController'
+                ).run()
+            )
+            monitoring_error_collection_task = asyncio.create_task(monitoring_error_collection(error_shutdown_event, error_collection)) 
 
-            
-            try:
-                await asyncio.gather(*seeders_tasks)
-            except asyncio.CancelledError:
-                pass    
+            await asyncio.gather(*seeders_tasks)
             logger.info(f"seeder {len(seeders)}개 실행 완료")
 
             # 모든 작업이 끝날 때까지 대기
@@ -107,11 +118,8 @@ async def _api_to_mongo(endpoints : list[str],
 
             api_shutdown_event.set()
             logger.info("api_shutdown_event set 완료")
-
-            try:
-                await asyncio.gather(*api_fetch_worker_tasks)
-            except asyncio.CancelledError:    
-                pass
+            
+            await asyncio.gather(*api_fetch_worker_tasks)
             logger.info(f"api_fetch_worker {len(api_fetch_workers)}개 실행 완료")
 
             await data_queue.join()
@@ -120,18 +128,29 @@ async def _api_to_mongo(endpoints : list[str],
             mongo_shutdown_event.set()
             logger.info("mongo_shutdown_event set 완료")
             
-            try:
-                await asyncio.gather(*mongo_store_worker_tasks)
-            except asyncio.CancelledError:
-                pass    
+            await asyncio.gather(*mongo_store_worker_tasks)
             logger.info(f"mongo_store_worker {len(mongo_store_workers)}개 실행 완료")
 
-            await asyncio.gather(*shutdown_controller_tasks)
-            logger.info("shutdown_controller_tasks 완료")
+            shutdown_controller_task.cancel()
+            
+            try:
+                await shutdown_controller_task
+            except asyncio.CancelledError:
+                logger.info("shutdown_controller 정상 종료")
+            
+            monitoring_error_collection_task.cancel()
+            
+            try:
+                await monitoring_error_collection_task
+            except asyncio.CancelledError:
+                logger.info("monitoring_error_collection 정상 종료")
+
             logger.info("api_to_mongo 완료")
 
 def api_to_mongo(
     endpoints: list[str],
+    mongo_collection_name : str = Settings.MONGO_COLLECTION_NAME,
+    error_collection_name : str =  Settings.MONGO_ERROR_COLLECTION_NAME,
     check_rate_limit: bool = None,
     num_api_fetch_workers: int = Settings.DEFAULT_NUM_API_FETCH_WORKERS,
     num_mongo_store_workers: int = Settings.DEFAULT_NUM_MONGO_STORE_WORKERS,
@@ -144,6 +163,8 @@ def api_to_mongo(
     asyncio.run(
         _api_to_mongo(
             endpoints=endpoints,
+            mongo_collection_name=mongo_collection_name,
+            error_collection_name=error_collection_name,
             check_rate_limit=check_rate_limit,
             num_api_fetch_workers=num_api_fetch_workers,
             num_mongo_store_workers=num_mongo_store_workers,

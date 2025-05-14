@@ -13,7 +13,7 @@
       "guild_name",
       "fetched_at"
     ],
-    "staging_character_avatars": [
+    "staging_character_avatar": [
       "server_id",
       "character_id",
       "headgear_item_name",
@@ -76,73 +76,7 @@
       "aura_skin_item_name",
       "fetched_at"
     ],
-    "staging_character_buff_avatars": [
-      "server_id",
-      "character_id",
-      "character_name",
-      "level",
-      "job_id",
-      "job_grow_id",
-      "job_name",
-      "job_grow_name",
-      "fame",
-      "adventure_name",
-      "guild_id",
-      "guild_name",
-      "buff_skill_info_skill_id",
-      "buff_skill_info_name",
-      "buff_skill_info_option_level",
-      "buff_skill_info_option_desc",
-      "buff_avatar_jacket_slot_name",
-      "buff_avatar_jacket_item_id",
-      "buff_avatar_jacket_item_name",
-      "buff_avatar_jacket_item_rarity",
-      "buff_avatar_jacket_clone_item_id",
-      "buff_avatar_jacket_clone_item_name",
-      "buff_avatar_jacket_option_ability",
-      "buff_avatar_jacket_emblems_slot_no",
-      "buff_avatar_jacket_emblems_slot_color",
-      "buff_avatar_jacket_emblems_item_id",
-      "buff_avatar_jacket_emblems_item_name",
-      "buff_avatar_jacket_emblems_item_rarity",
-      "buff_avatar_pants_slot_name",
-      "buff_avatar_pants_item_id",
-      "buff_avatar_pants_item_name",
-      "buff_avatar_pants_item_rarity",
-      "buff_avatar_pants_clone_item_id",
-      "buff_avatar_pants_clone_item_name",
-      "buff_avatar_pants_option_ability",
-      "buff_avatar_pants_emblems_slot_no",
-      "buff_avatar_pants_emblems_slot_color",
-      "buff_avatar_pants_emblems_item_id",
-      "buff_avatar_pants_emblems_item_name",
-      "buff_avatar_pants_emblems_item_rarity",
-      "fetched_at"
-    ],
-    "staging_character_buff_creatures": [
-      "server_id",
-      "character_id",
-      "character_name",
-      "level",
-      "job_id",
-      "job_grow_id",
-      "job_name",
-      "job_grow_name",
-      "fame",
-      "adventure_name",
-      "guild_id",
-      "guild_name",
-      "buff_skill_info_skill_id",
-      "buff_skill_info_name",
-      "buff_skill_info_option_level",
-      "buff_skill_info_option_desc",
-      "buff_creature_item_id",
-      "buff_creature_item_name",
-      "buff_creature_item_rarity",
-      "buff_creature_enchant",
-      "fetched_at"
-    ],
-    "staging_character_buff_equipments": [
+    "staging_character_buff_equipment": [
       "server_id",
       "character_id",
       "buff_skill_info_name",
@@ -150,7 +84,7 @@
       "equipment",
       "fetched_at"
     ],
-    "staging_character_creatures": [
+    "staging_character_creature": [
       "server_id",
       "character_id",
       "item_name",
@@ -166,7 +100,7 @@
       "artifact_green_item_rarity",
       "fetched_at"
     ],
-    "staging_character_equipments": [
+    "staging_character_equipment": [
       "server_id",
       "character_id",
       "weapon_item_id",
@@ -354,7 +288,17 @@
       "set_item_info",
       "fetched_at"
     ],
-    "staging_character_flags": [
+    "staging_character_fame": [
+      "server_id",
+      "character_id",
+      "character_name",
+      "level",
+      "job_name",
+      "job_grow_name",
+      "fame",
+      "fetched_at"
+    ],
+    "staging_character_flag": [
       "server_id",
       "character_id",
       "item_rarity",
@@ -363,6 +307,19 @@
       "gems_1_item_rarity",
       "gems_2_item_rarity",
       "gems_3_item_rarity",
+      "fetched_at"
+    ],
+    "staging_character_info": [
+      "server_id",
+      "character_id",
+      "character_name",
+      "level",
+      "job_name",
+      "job_grow_name",
+      "fame",
+      "adventure_name",
+      "guild_id",
+      "guild_name",
       "fetched_at"
     ],
     "staging_character_status": [
@@ -378,26 +335,13 @@
       "status_final_cooldown_reduction_rate_value",
       "fetched_at"
     ],
-    "staging_character_timelines": [
+    "staging_character_timeline": [
       "character_id",
       "server_id",
       "timeline_code",
       "timeline_name",
       "timeline_date",
       "timeline_data",
-      "fetched_at"
-    ],
-    "staging_characters": [
-      "server_id",
-      "character_id",
-      "character_name",
-      "level",
-      "job_name",
-      "job_grow_name",
-      "fame",
-      "adventure_name",
-      "guild_id",
-      "guild_name",
       "fetched_at"
     ]
   },

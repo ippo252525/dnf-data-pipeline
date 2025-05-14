@@ -1,15 +1,22 @@
 from pymongo import MongoClient
 from pyneople.config.config import Settings
 
-def main():
+def clear_collection(collection_names: str | list[str]):
     mongo_client = MongoClient(Settings.MONGO_URL)
     db = mongo_client[Settings.MONGO_DB_NAME]
-    coll = db[Settings.MONGO_COLLECTION_NAME]
-    error_coll = db[Settings.MONGO_ERROR_COLLECTION_NAME]
-    print(Settings.MONGO_COLLECTION_NAME)
-    print(coll.delete_many({}))
-    print(Settings.MONGO_ERROR_COLLECTION_NAME)
-    print(error_coll.delete_many({}))
+
+    if isinstance(collection_names, str):
+        collection_names = [collection_names]
+
+    for name in collection_names:
+        result = db[name].delete_many({})
+        print(f"Cleared '{name}' ({result.deleted_count} documents deleted)")
+
+    mongo_client.close()
 
 if __name__ == "__main__":
-    main()
+    mongo_client = MongoClient(Settings.MONGO_URL)
+    db = mongo_client[Settings.MONGO_DB_NAME]
+    for coll_name in db.list_collection_names():
+        if not coll_name.startswith("system."):
+            clear_collection(coll_name)

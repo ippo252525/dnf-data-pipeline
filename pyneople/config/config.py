@@ -29,6 +29,14 @@ class Settings:
     POSTGRES_PASSWORD=os.getenv('PYNEOPLE_POSTGRES_PASSWORD')
     POSTGRES_DB=os.getenv('PYNEOPLE_POSTGRES_DB')
     POSTGRES_SCHEMA=os.getenv('PYNEOPLE_POSTGRES_SCHEMA')
+    
+    # ClickHouse 설정
+    CLICK_HOUSE_HOST = os.getenv('PYNEOPLE_CLICK_HOUSE_HOST')
+    CLICK_HOUSE_PORT = os.getenv('PYNEOPLE_CLICK_HOUSE_PORT')
+    CLICK_HOUSE_USER_NAME = os.getenv('PYNEOPLE_CLICK_HOUSE_USER_NAME')
+
+    # Slack Webhook 설정
+    SLACK_WEBHOOK_URL = os.getenv('PYNEOPLE_SLACK_WEBHOOK_URL')
 
     # 디폴트 값
     
