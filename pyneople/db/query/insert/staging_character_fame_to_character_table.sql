@@ -47,5 +47,4 @@ WHERE
     character.level IS DISTINCT FROM EXCLUDED.level OR
     character.job_name IS DISTINCT FROM EXCLUDED.job_name OR
     character.job_grow_name IS DISTINCT FROM EXCLUDED.job_grow_name OR
-    character.fame IS DISTINCT FROM EXCLUDED.fame OR
-    character.fetched_at IS DISTINCT FROM EXCLUDED.fetched_at;
+    character.fame IS DISTINCT FROM EXCLUDED.fame;

@@ -1,0 +1,3 @@
+TRUNCATE TABLE character_buff_equipment;
+INSERT INTO character_buff_equipment
+SELECT * FROM staging_character_buff_equipment;

@@ -2,11 +2,12 @@ import psycopg2
 import os
 import json
 import requests
+import clickhouse_connect
 from pyneople.config.config import Settings
 from pyneople.metadata.metadata_constants import SERVER_ID_LIST, NO_JOG_GROW_JOB_IDS
 from pyneople.utils.api_utils.api_request_builder import build_api_request
 from pyneople.utils.api_utils.url_builder import build_url
-from pyneople.utils.db_utils.psql_connection import psql_connection
+from pyneople.utils.db_utils.postgresql import psql_connection
 
 # === 설정 ===
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -14,8 +15,8 @@ OUTPUT_FILE = os.path.join(BASE_DIR, '../../metadata/metadata_generated.json')
 
 metadata = dict()
 
-# 테이블 컬럼 정보 받아오기
-metadata['table_columns_map'] = dict()
+# PostgreSQL 테이블 컬럼 정보 받아오기
+metadata['psql_table_columns_map'] = dict()
 
 with psql_connection() as conn:
     SCHEMA = Settings.POSTGRES_SCHEMA
@@ -31,8 +32,24 @@ with psql_connection() as conn:
         rows = cur.fetchall()
 
 for table_name, column_name in rows:
-    metadata['table_columns_map'].setdefault(table_name, []).append(column_name)
-    
+    metadata['psql_table_columns_map'].setdefault(table_name, []).append(column_name)
+
+# Clickhouse 테이블 컬럼 정보 받아오기
+metadata['clickhouse_table_columns_map'] = dict()
+ch_client = clickhouse_connect.get_client(
+    host=Settings.CLICK_HOUSE_HOST,
+    port=Settings.CLICK_HOUSE_PORT,
+    username=Settings.CLICK_HOUSE_USER_NAME,
+    password=""
+)
+tables = ch_client.query(f"SELECT name FROM system.tables WHERE database = '{Settings.CLICK_HOUSE_USER_NAME}'")
+table_names = [row[0] for row in tables.result_rows]
+
+for table_name in table_names:
+    columns = ch_client.query(f"DESCRIBE TABLE {Settings.CLICK_HOUSE_USER_NAME}.{table_name}") 
+    columns = [row[0] for row in columns.result_rows] 
+    metadata['clickhouse_table_columns_map'][table_name] = columns
+
 # 직업 정보 받아오기
 metadata['params_for_seed_character_fame'] = list()
 response = requests.get(build_url(build_api_request('job_info', apikey=Settings.API_KEYS[0])))

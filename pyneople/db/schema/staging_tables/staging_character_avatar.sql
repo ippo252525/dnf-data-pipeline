@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS "staging_character_avatar" (
+CREATE UNLOGGED TABLE IF NOT EXISTS "staging_character_avatar" (
   "server_id" TEXT,
   "character_id" CHAR(32),
   "headgear_item_name" TEXT,

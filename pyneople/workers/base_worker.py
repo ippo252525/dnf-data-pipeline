@@ -1,10 +1,12 @@
 from abc import ABC, abstractmethod
-from typing import Any, Dict, List, Optional
 import asyncio
 
 class BaseWorker(ABC):
+    """
+    ascyncio.Queue에서 데이터를 수집, 전처리, batch단위로 처리하는 비동기 워커 클래스
+    """
     def __init__(self, 
-                 queue: Any, 
+                 queue: asyncio.Queue, 
                  batch_size: int,
                  shutdown_event: asyncio.Event):
         self.queue = queue

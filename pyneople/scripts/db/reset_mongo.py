@@ -1,6 +1,19 @@
 from pymongo import MongoClient
 from pyneople.config.config import Settings
 
+import logging
+logger = logging.getLogger(__name__)
+
+def drop_collection(collection_names: str | list[str]):
+    mongo_client = MongoClient(Settings.MONGO_URL)
+    db = mongo_client[Settings.MONGO_DB_NAME]
+    if isinstance(collection_names, str):
+        collection_names = [collection_names]    
+    for name in collection_names:
+            db[name].drop()
+            logger.info(f"Drop collection : '{name}')")
+    mongo_client.close()            
+
 def clear_collection(collection_names: str | list[str]):
     mongo_client = MongoClient(Settings.MONGO_URL)
     db = mongo_client[Settings.MONGO_DB_NAME]
@@ -10,7 +23,7 @@ def clear_collection(collection_names: str | list[str]):
 
     for name in collection_names:
         result = db[name].delete_many({})
-        print(f"Cleared '{name}' ({result.deleted_count} documents deleted)")
+        logger.info(f"Cleared '{name}' ({result.deleted_count} documents deleted)")
 
     mongo_client.close()
 
