@@ -1,0 +1,9 @@
+SELECT 
+    server_id, 
+    character_id, 
+    timeline_code, 
+    timeline_name,
+    timeline_date,
+    timeline_data
+FROM
+    staging_character_timeline;    

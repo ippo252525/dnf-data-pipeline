@@ -17,7 +17,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-async def _api_to_mongo(endpoints : list[str],
+async def _api_to_mongo(endpoints : str | list[str],
                mongo_collection_name : str = Settings.MONGO_COLLECTION_NAME,
                error_collection_name : str =  Settings.MONGO_ERROR_COLLECTION_NAME,
                check_rate_limit : bool = None,
@@ -52,6 +52,10 @@ async def _api_to_mongo(endpoints : list[str],
     Returns:
         None
     """    
+    # endpoints가 문자열인 경우 리스트로 변환
+    if isinstance(endpoints, str):
+        endpoints = [endpoints]
+
     # Shutdown event 설정
     api_shutdown_event = asyncio.Event()
     mongo_shutdown_event = asyncio.Event()
@@ -62,6 +66,9 @@ async def _api_to_mongo(endpoints : list[str],
     mongo_collection = mongo_client[Settings.MONGO_DB_NAME][mongo_collection_name]
     error_collection = mongo_client[Settings.MONGO_DB_NAME][error_collection_name]
 
+    # 동시성 제어를 위한 세마포어
+    semaphore = asyncio.Semaphore(20)
+    logger.info(f"세마포어 적용 {semaphore}")
     async with asyncpg.create_pool(
         user=Settings.POSTGRES_USER,
         password=Settings.POSTGRES_PASSWORD,
@@ -83,11 +90,12 @@ async def _api_to_mongo(endpoints : list[str],
             if check_rate_limit:
                 asyncio.create_task(count_requests_per_second(api_shutdown_event))
             seeders = [EndpointRegistry.get_class(endpoint).seeder(endpoint, api_request_queue, psql_pool, error_shutdown_event, seeder_batch_size, name = f'{endpoint}_Seeder') for endpoint in endpoints]
-            api_fetch_workers = [APIFetchWorker(api_request_queue, data_queue, session, api_shutdown_event, error_shutdown_event ,error_collection, name = f'APIFetchWorker_{i}') for i in range(num_api_fetch_workers)]
+            api_fetch_workers = [APIFetchWorker(api_request_queue, data_queue, session, api_shutdown_event, error_shutdown_event ,error_collection, semaphore, name = f'APIFetchWorker_{i}') for i in range(num_api_fetch_workers)]
             mongo_store_workers = [MongoStoreWorker(data_queue, mongo_collection, mongo_shutdown_event, error_shutdown_event, mongo_store_batch_size, name = f'MongoStoreWorker_{i}') for i in range(num_mongo_store_workers)]
 
             
             # 워커 태스크 실행
+            logger.info(f"keyword arguments : {seed_kwargs.get('timeline_end_date')}")
             seeders_tasks = [asyncio.create_task(seeder.seed(**seed_kwargs)) for seeder in seeders]
             logger.info(f"seeder {len(seeders)}개 실행 시작")
             api_fetch_worker_tasks = [asyncio.create_task(worker.run()) for worker in api_fetch_workers]

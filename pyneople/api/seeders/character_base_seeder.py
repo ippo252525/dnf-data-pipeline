@@ -23,7 +23,7 @@ class CharacterBaseSeeder(BaseSeeder):
                 - rows (list[tuple]): (character_id, server_id) 쌍의 리스트
                 - seeder_batch_size (int, optional): 한 번에 가져올 row 수
         """        
-        if kwargs['sql']:
+        if kwargs.get('sql'):
             async with self.psql_pool.acquire() as conn:
                 async with conn.transaction():
                     cursor = await conn.cursor(kwargs['sql'])
@@ -32,12 +32,12 @@ class CharacterBaseSeeder(BaseSeeder):
                         if not rows_batch:
                             break
                         await self._process_rows(rows_batch, **kwargs)
-        elif kwargs['rows']:
+        elif kwargs.get('rows'):
             await self._process_rows(kwargs['rows'], **kwargs)
         else:
             raise ValueError("sql 또는 rows 둘 중 하나는 반드시 제공되어야 합니다.")
         logger.info(f"{self.name}종료")
-    async def _process_rows(self, rows, **kwargs):
+    async def _process_rows(self, characters, **kwargs):
         """
         row 리스트를 순회하며 캐릭터 정보 기반 API 요청을 생성하고 큐에 삽입하는 메서드
 
@@ -45,7 +45,7 @@ class CharacterBaseSeeder(BaseSeeder):
             rows (list[tuple]): (character_id, server_id) 쌍의 리스트
             **kwargs: 추가 파라미터
         """        
-        for character_id, server_id in rows:
+        for character_id, server_id in characters:
             api_requests = self._get_api_requests(character_id, server_id, **kwargs)
             for api_request in api_requests:
                 await self.api_request_queue.put(api_request)   

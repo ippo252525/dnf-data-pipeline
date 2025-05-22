@@ -17,7 +17,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 async def _mongo_to_psql(
-    endpoints: Optional[list] = None,
+    endpoints: str | list[str] = None,
     character_info_endpoints: Optional[list] = None,
     mongo_collection_name : str = Settings.MONGO_COLLECTION_NAME,
     error_collection_name : str = Settings.MONGO_ERROR_COLLECTION_NAME,
@@ -49,6 +49,10 @@ async def _mongo_to_psql(
     Returns:
         None
     """    
+    # endpoints가 문자열인 경우 리스트로 변환
+    if isinstance(endpoints, str):
+        endpoints = [endpoints]
+
     # 1. DB 연결
     # MongoDB
     mongo_client = AsyncIOMotorClient(Settings.MONGO_URL)

@@ -1,4 +1,4 @@
-INSERT INTO character_timelines (
+INSERT INTO character_timeline (
     character_id, server_id, timeline_code, timeline_date, timeline_data, fetched_at
 )
 SELECT
@@ -11,4 +11,4 @@ SELECT
         ELSE timeline_data::jsonb
     END,
     fetched_at
-FROM staging_character_timelines;
+FROM staging_character_timeline;

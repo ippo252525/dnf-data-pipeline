@@ -8,6 +8,7 @@ from pyneople.api.registry.endpoint_registry import EndpointRegistry
 from pyneople.config.config import Settings
 from pyneople.utils.common import NotFoundCharacterError, RetryableError
 import logging
+import random
 
 # 재시도 할 에러들들
 RETRYABLE_ERRORS = (
@@ -30,6 +31,7 @@ class APIFetchWorker:
                  shutdown_event : asyncio.Event, 
                  error_shutdown_event : asyncio.Event, 
                  error_collection : AsyncIOMotorCollection,
+                 semaphore: asyncio.Semaphore,
                  max_retries : int = Settings.DEFAULT_API_FETCH_WORKER_MAX_RETRIES,
                  timeout : float = Settings.DEFAULT_API_FETCH_WORKER_TIMEOUT,
                  name : str = 'APIFetchWorker'):
@@ -39,6 +41,7 @@ class APIFetchWorker:
         self.shutdown_event = shutdown_event
         self.error_shutdown_event = error_shutdown_event
         self.error_collection = error_collection
+        self.semaphore = semaphore
         self.max_retries = max_retries
         self.timeout = timeout
         self.name = name
@@ -95,37 +98,50 @@ class APIFetchWorker:
             
     async def fetch_with_retries(self, api_request: dict):
         url = build_url(api_request)
-        return await self._retry_with_backoff(self._fetch, url = url, api_request = api_request)
+        await asyncio.sleep(random.uniform(0, 0.1))
+        async with self.semaphore:
+            return await self._retry_with_backoff(self._fetch, url = url, api_request = api_request)
 
     async def _fetch(self, url : str, api_request: dict):
-        Settings.request_count += 1
-        async with self.session.get(url) as response:
-            try:
-                data = await response.json()
-            except:
-                logger.error('API 응답이 json으로 오지 않음')
-                raise
+        
+        try:
+            Settings.request_count += 1
+            async with self.session.get(url) as response:
+                try:
+                    data = await response.json()
+                except:
+                    logger.warning('API 응답이 json으로 오지 않음')
+                    try:
+                        data = await response.text()
+                        data = {'error' : data}
+                    except:
+                        data = {'error' : 'text 확보 실패'}
+                    finally:
+                        await self.save_error_log(api_request, data, datetime.now(timezone.utc))
+                        raise RetryableError
 
-            if response.status == 200:
-                return data
-            else:
-                error_code = data.get("error", {}).get("code")
-                await self.save_error_log(api_request, data, datetime.now(timezone.utc))
-                
-                if error_code == "DNF001":
-                    raise NotFoundCharacterError()
-                
-                elif error_code == "API007":
-                    logger.warning("클라이언트 소켓 통신 오류")
-                    raise RetryableError
-                
-                elif error_code == "API999":
-                    logger.warning("시스템 오류")
-                    raise RetryableError
-                
+                if response.status == 200:
+                    return data
                 else:
-                    response.raise_for_status()
-
+                    error_code = data.get("error", {}).get("code")
+                    await self.save_error_log(api_request, data, datetime.now(timezone.utc))
+                    
+                    if error_code == "DNF001":
+                        raise NotFoundCharacterError()
+                    
+                    elif error_code == "API007":
+                        logger.warning("클라이언트 소켓 통신 오류")
+                        raise RetryableError
+                    
+                    elif error_code == "API999":
+                        logger.warning("시스템 오류")
+                        raise RetryableError
+                    
+                    else:
+                        response.raise_for_status()
+        except RETRYABLE_ERRORS as e:
+            await self.save_error_log(api_request, {'error' : e.__class__.__name__}, datetime.now(timezone.utc))
+            raise
 
     async def _retry_with_backoff(self, func : callable, **kwargs):
         attempt = 0
@@ -137,7 +153,7 @@ class APIFetchWorker:
                 if attempt > self.max_retries:
                     logger.error(f"[{self.name}] 재시도 초과: {e}")
                     raise
-                backoff = min(2 ** attempt, 30)
+                backoff = min(5 * attempt, 30)
                 logger.warning(f"[{self.name}] 재시도 {attempt}/{self.max_retries} - 예외: {e} - {backoff}초 후 재시도")
                 await asyncio.sleep(backoff)
 

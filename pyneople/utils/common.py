@@ -79,9 +79,13 @@ def format_buff_equipment_info(buff_equipment_info : list, buff_name : str, job_
                     result += 1
     return result    
 
-        
-        
-
 def format_buff_skill_info(buff_skill_info : dict) -> str:
     return buff_skill_info['name']
-    
+
+def read_sql(sql_path):
+    """
+    path에 있는 sql파일을 읽어서 반환하는 함수
+    """
+    with open(sql_path, 'r') as f:
+        sql = f.read()
+    return sql    

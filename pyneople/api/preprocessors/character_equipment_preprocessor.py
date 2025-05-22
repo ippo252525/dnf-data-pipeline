@@ -8,12 +8,17 @@ def preprocess_character_equipment(data : dict, columns : list):
     data['fetched_at'] = data['fetched_at'].replace(tzinfo=ZoneInfo("UTC"))
     
     # 세트 아이템 정보는 세트이름||세트포인트 문자열로 반환
-    if data.get('set_item_info') and isinstance(data['set_item_info'], list):
-        if data['set_item_info'][0]['active'].get('setPoint'):
-            data['set_item_info'] = f"{data['set_item_info'][0]['setItemName']}||{data['set_item_info'][0]['active']['setPoint']['current']}"
+    if data.get('set_item_info'): 
+        if isinstance(data.get('set_item_info'), list):
+            if data['set_item_info'][0]['active'].get('setPoint'):
+                data['set_item_info'] = f"{data['set_item_info'][0]['setItemName']}||{data['set_item_info'][0]['active']['setPoint']['current']}"
+            else:
+                data['set_item_info'] = None
         else:
-            data['set_item_info'] = None
-            
+            data['set_item_info'] = None            
+    else:
+        data['set_item_info'] = None
+
     # 마법부여 정보 정리
     if any(column.endswith('enchant') for column in columns):
         for column in [column for column in columns if column.endswith('enchant')]:

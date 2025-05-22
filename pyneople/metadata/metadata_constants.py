@@ -253,3 +253,45 @@ SAME_BUFF_SKILL_NAMES = [
 
 # 유일 장비를 착용 할 수 있는 부위
 HAS_EXALTED_INFO_SLOT_IDS = ['EARRING', 'MAGIC_STON']
+
+# 퇴마사의 모든 전직 이름
+EXORCIST_JOB_GROW_NAMES = ['퇴마사', '용투사', '태을선인', '眞 퇴마사']
+
+# 타임라인 데이터 코드마다 올 수 있는 dict의 key
+TIMELINE_CODE_TO_KEYS_MAP = {
+    102: {'afterName', 'beforeName'},
+    103: {'jobGrowId', 'jobGrowName', 'jobId', 'jobName'},
+    104: {'level'},
+    105: {'afterName', 'beforeName'},
+    201: {'guide', 'hard', 'matching', 'modeName', 'phaseName', 'raidName', 'raidPartyName', 'single', 'squad'},
+    206: {'mode', 'point'},
+    207: {'guide', 'raidPartyName'},
+    209: {'regionName'},
+    210: {'hard', 'modeName', 'raidName', 'raidPartyName'},
+    401: {'after', 'before', 'itemId', 'itemName', 'itemRarity', 'result', 'safe', 'ticket'},
+    402: {'after', 'before', 'itemId', 'itemName', 'itemRarity', 'result', 'safe', 'ticket'},
+    403: {'after', 'itemId', 'itemName', 'itemRarity', 'result'},
+    404: {'after', 'before', 'itemId', 'itemName', 'itemRarity', 'result', 'safe'},
+    405: {'amplification', 'itemId', 'itemName', 'itemRarity', 'refine', 'reinforce'},
+    406: {'amplification', 'itemId', 'itemName', 'itemRarity', 'refine', 'reinforce'},
+    407: {'itemId', 'itemName', 'itemRarity'},
+    501: {'booster', 'itemId', 'itemName'},
+    502: {'itemId', 'itemName', 'itemRarity'},
+    504: {'channelName', 'channelNo', 'itemId', 'itemName', 'itemRarity', 'mistGear', 'reinforce'},
+    505: {'channelName', 'channelNo', 'dungeonName', 'itemId', 'itemName', 'itemRarity', 'mistGear'},
+    506: {'itemId', 'itemName', 'itemRarity'},
+    507: {'itemId', 'itemName', 'itemRarity'},
+    508: {'itemId', 'itemName', 'itemRarity', 'npcName'},
+    510: {'itemId', 'itemName', 'itemRarity', 'mistGear', 'refinedMistGear'},
+    511: {'itemId', 'itemName', 'itemRarity', 'pureMistGear'},
+    512: {'itemId', 'itemName', 'itemRarity', 'upgradeName'},
+    513: {'dungeonName', 'itemId', 'itemName', 'itemRarity', 'mistGear'},
+    514: {'itemId', 'itemName', 'itemRarity'},
+    516: {'adventureSafeMoveType', 'itemId', 'itemName', 'itemRarity', 'mistGear'},
+    517: {'itemId', 'itemName', 'itemRarity', 'resultItems'},
+    518: {'itemId', 'itemName', 'itemObtainInfo', 'itemRarity'},
+    519: {'itemId', 'itemName', 'itemRarity', 'mistGear'},
+    520: {'itemId', 'itemName', 'itemRarity'},
+    601: {'itemId', 'itemName', 'itemObtainInfo', 'itemRarity'},
+    602: {'itemId', 'itemName', 'itemObtainInfo', 'itemRarity'}
+}

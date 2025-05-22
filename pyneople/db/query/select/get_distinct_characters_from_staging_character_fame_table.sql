@@ -1,3 +1,4 @@
+-- ClickHouse 삽입을 위한 query
 SELECT DISTINCT ON (character_id, server_id)
     character_id,
     server_id,
